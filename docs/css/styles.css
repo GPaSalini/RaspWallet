@@ -1,0 +1,104 @@
+/* Sidebar */
+#wrapper {
+    overflow-x: hidden;
+}
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: 0;
+    transition: margin .25s ease-out;
+}
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+}
+#sidebar-wrapper .list-group {
+    width: 12rem;
+}
+#page-content-wrapper {
+    min-width: 90vw;
+}
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+#page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+    background-color:whitesmoke;
+}
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: -12rem;
+}
+.list-group-item{
+    border-bottom-width: 0px !important;
+}
+
+/* Datatable*/
+#mydatatable{
+    border-collapse: collapse;
+    font-size: 12px;
+    width: 100%;
+}
+
+h2.titulo {
+    text-align: center;
+    display: inline-block;
+    margin: 10px;
+    margin-left: 45%;
+}
+
+/* Botones */
+.btn-menusb{
+    margin-left: 10px;
+    margin-top: 10px;
+    float: left;
+}
+.btn-nuevo {
+    display: inline !important;
+    margin: 10px !important;
+    float: right;
+    background-color: #000000ab !important;
+    color: #ffffff !important;
+    font-size: 15px !important;
+}
+.btn-nuevo:Hover {
+    background-color: #ffffff !important; 
+    color: #000000ab !important;
+}
+.btn-confirmar {
+    display: inline;
+    position: relative;
+    float: right;
+    background-color: #3fca15be;
+    color: rgb(255, 255, 255); 
+    border: 1px solid #3700ffb0;
+}
+.btn-confirmar:hover { 
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+}
+.btn-cancelar{
+    display: inline;
+    background-color: #ff0000be;
+    color: #ffffff; 
+    border: 1px solid #3700ffb0;
+}
+.btn-cancelar:hover{
+    background-color: #ffffffab;
+    color: rgb(0, 0, 0);
+}
+.btn-modificar {
+    background-color: #000000ab !important;
+    color: #ffffff !important;
+    font-size: 12px;
+}
+.btn-modificar:hover {
+    background-color: #ffffff !important; 
+    color: #000000ab !important;
+}
+
+.centrado{
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+    text-align: center;
+}

@@ -1,7 +1,7 @@
 <?php if(isset($_SESSION["user"])): ?>
 <!-- Inicio Sidebar -->
 <nav class="bg-dark text-white" id="sidebar-wrapper">
-    <div class="sidebar-heading"><img class="centrado" src="../../docs/img/raspberry-icon2.png" width="60" height="60"><h5 class="centrado">RaspWallet</h5></div>
+    <div class="sidebar-heading"><img class="centrado" src="../../docs/img/raspberry-icon2.png" width="80" height="80"><h5 class="centrado">RaspWallet</h5></div>
     <hr style="width:90%; margin:auto; background-color: black;"/>
     <div class="list-group list-group-flush">
         <a href="#" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-user-alt"></i> Perfil</a>
@@ -15,7 +15,7 @@
 <?php else: ?>
 <!-- Inicio Sidebar -->
 <nav class="bg-dark text-white" id="sidebar-wrapper">
-<div class="sidebar-heading"><img class="centrado" src="../../docs/img/raspberry-icon2.png" width="60" height="60"><h5 class="centrado">RaspWallet</h5></div>
+<div class="sidebar-heading"><img class="centrado" src="../../docs/img/raspberry-icon2.png" width="80" height="80"><h5 class="centrado">RaspWallet</h5></div>
 <hr style="width:90%; margin:auto; background-color: black;"/>
     <div class="list-group list-group-flush">
         <form id="form-login" class="bg-dark text-white list-group-item list-group-item-action" action="../controllers/login.php" method="post">

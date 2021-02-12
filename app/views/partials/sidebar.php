@@ -1,6 +1,6 @@
 <?php if(isset($_SESSION["user"])): ?>
 <!-- Inicio Sidebar -->
-<nav class="bg-dark text-white" id="sidebar-wrapper">
+<div class="bg-dark text-white" id="sidebar-wrapper">
     <div class="sidebar-heading"><img class="centrado" src="../../docs/img/raspberry-icon2.png" width="80" height="80"><h5 class="centrado">RaspWallet</h5></div>
     <hr style="width:90%; margin:auto; background-color: black;"/>
     <div class="list-group list-group-flush">
@@ -10,13 +10,13 @@
         <a href="#" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-chart-area"></i> Histograma</a>
         <a href="./logout.php" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-sign-out-alt"></i> Salir</a>
     </div>
-</nav>
+</div>
 <!-- Fin Sidebar -->
 <?php else: ?>
 <!-- Inicio Sidebar -->
-<nav class="bg-dark text-white" id="sidebar-wrapper">
-<div class="sidebar-heading"><img class="centrado" src="../../docs/img/raspberry-icon2.png" width="80" height="80"><h5 class="centrado">RaspWallet</h5></div>
-<hr style="width:90%; margin:auto; background-color: black;"/>
+<div class="bg-dark text-white" id="sidebar-wrapper">
+    <div class="sidebar-heading"><img class="centrado" src="../../docs/img/raspberry-icon2.png" width="80" height="80"><h5 class="centrado">RaspWallet</h5></div>
+    <hr style="width:90%; margin:auto; background-color: black;"/>
     <div class="list-group list-group-flush">
         <form id="form-login" class="bg-dark text-white list-group-item list-group-item-action" action="../controllers/login.php" method="post">
             <div class="form-group">
@@ -31,6 +31,6 @@
         <a id="confirmar" href="#" class="bg-dark text-white list-group-item list-group-item-action"><i class="fas fa-sign-in-alt"></i> Ingresar</a>
         <a href="../views/register.php" class="bg-dark text-white list-group-item list-group-item-action"><i class="fas fa-user-plus"></i> Nuevo Usuario</a>
     </div>
-</nav>
+</div>
 <!-- Fin Sidebar -->
 <?php endif; ?>

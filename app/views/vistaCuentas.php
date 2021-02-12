@@ -14,12 +14,12 @@
             <button type="button" class="btn btn-secondary btn-menusb" id="menu-toggle"><i class="fas fa-bars"></i></button>
 
             <!-- Inicio Datatable -->
-            <h2 class="mx-7 titulo">Cuentas</h2>
             <button id="btnNew" type="button" class="btn btn-info btn-nuevo" data-toggle="modal" data-target="#modalNewAcc">+</button>
-            <hr style="width:90%; margin: auto; margin-bottom: 20px; background-color: black;"/>
+            <h2 class="mx-7 titulo">Cuentas</h2>
+            <hr style="width:90%; margin:auto; margin-bottom:20px; margin-top:20px; background-color:black;"/>
 
             <div class="card" style="padding: 5px 10px 5px; margin: 10px;">
-                <table class="table table-bordered mr-4 pr-7" id="accountstable">
+                <table class="table table-bordered mr-4 pr-7" style="width:100%" id="accountstable">
                     <thead class="thead-dark">
                         <tr>
                             <th>Cuenta</th>
@@ -127,6 +127,7 @@
     <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.bootstrap4.min.js"></script>
+    <script type="text/javascript" src= "https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
     
     <!-- Cuentas JS -->
     <script type="text/javascript" src="../../docs/js/cuentas.js"></script> 
@@ -142,6 +143,7 @@
     <!-- Datatable Traduccion -->
     <script>
         $('#accountstable').DataTable({
+            responsive: true,
             "language": {
                 "sProcessing":     "Procesando...",
                 "sLengthMenu":	   "Mostrar _MENU_ registros",

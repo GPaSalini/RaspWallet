@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(isset($_SESSION['user'])){
+        header("location:../controllers/ctrlCuentas.php");
+    } 
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -8,8 +15,7 @@
 <body>
     <div class="d-flex" id="wrapper">
         <?php require_once("../views/partials/sidebar.php")?>
-        <div id="page-content-wrapper">
-            <button class="btn btn-secondary btn-menusb" id="menu-toggle"><i class="fas fa-bars"></i></button>
+        <div class="sidebar-login" id="page-content-wrapper">
         </div>
     </div>
 

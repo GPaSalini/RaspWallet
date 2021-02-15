@@ -1,7 +1,4 @@
 /* Sidebar */
-#wrapper {
-    overflow-x: hidden;
-}
 #sidebar-wrapper {
     min-height: 100vh;
     margin-left: 0;
@@ -15,13 +12,7 @@
     width: 12rem;
 }
 #page-content-wrapper {
-    min-width: 90vw;
-}
-#wrapper.toggled #sidebar-wrapper {
-    margin-left: 0;
-}
-#page-content-wrapper {
-    min-width: 0;
+    min-width: 85vw;
     width: 100%;
     background-color:whitesmoke;
 }
@@ -39,6 +30,32 @@
     width: 100%;
 }
 
+/* On smaller screens, where height is less than 640px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 640px) {
+    #wrapper.toggled #page-content-wrapper {
+        width: 100vw;
+        background-color:whitesmoke;
+    }
+    #sidebar-wrapper{
+        min-height: 100vh;
+        min-width: 80vw;
+    }
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -80vw;
+    }
+    #wrapper.toggled #menu-toggle {
+        margin-top: 10px;
+        margin-left: 20vw;
+    }
+    .sidebar-login#sidebar-wrapper {
+        min-width: 100vw;
+    }
+    .sidebar-login#page-content-wrapper {
+        min-width: 0;
+        width: 0;
+    }
+}
+
 h2.titulo {
     text-align: center;
     margin-left:auto;
@@ -52,6 +69,10 @@ h2.titulo {
     background-color: #000000ab !important;
     color: #ffffff !important;
     font-size: 15px !important;
+}
+.btn-menusb:Hover {
+    background-color: #ffffff !important; 
+    color: #000000ab !important;
 }
 .btn-nuevo {
     margin: 10px;

@@ -31,12 +31,26 @@
 }
 
 /* On smaller screens, where height is less than 640px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 640px) {
+@media screen and (max-width: 720px) {
+    .centrado {
+        font-size: 5vh;
+    }
     #wrapper.toggled #page-content-wrapper {
         width: 100vw;
         background-color:whitesmoke;
     }
+    .list-group{
+        min-width: 70vw;
+        font-size: 3vh;
+    }
+    .list-group-item{
+        padding: 3vw;
+    }
+    .list-group input{
+        font-size: 3vh;
+    }
     #sidebar-wrapper{
+        font-size: 3vh;
         min-height: 100vh;
         min-width: 80vw;
     }
@@ -45,7 +59,7 @@
     }
     #wrapper.toggled #menu-toggle {
         margin-top: 10px;
-        margin-left: 20vw;
+        margin-left: 10px;
     }
     .sidebar-login#sidebar-wrapper {
         min-width: 100vw;

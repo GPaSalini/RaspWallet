@@ -13,7 +13,7 @@
     $description = filter_input(INPUT_POST,'mDesc',FILTER_SANITIZE_STRING);
     $datestamp = $_POST['mDate'];
 
-    $respuesta = $tran->put_Account($id,$acc,$qn,$datestamp,$description);
+    $respuesta = $tran->put_Transaction($id,$acc,$qn,$datestamp,$description);
 
     if($respuesta){
         $mensaje = [

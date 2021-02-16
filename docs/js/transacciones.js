@@ -74,7 +74,7 @@ function cargar_modal(id_trs){
             document.getElementById("mId").value = res[0].id_trs
             document.getElementById("mCuenta").value = res[0].id_acc
             document.getElementById("mQn").value = res[0].quantity
-            document.getElementById("mDate").value = res[0].datestamp
+            document.getElementById("mDate").value = (res[0].datestamp).replace(/\s/g,"T")
             document.getElementById("mDesc").value = res[0].description
         },
         error: function() {

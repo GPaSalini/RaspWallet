@@ -33,7 +33,7 @@
                     <?php if($transactions): foreach($transactions as $row): ?>
                     <tr>
                         <td><?= $row->account?></td>
-                        <td><?= $row->quantity?></td>
+                        <td align="right"><?= $row->quantity?></td>
                         <td><?= $row->datestamp?></td>
                         <td><?= $row->description?></td>
                         <td><button type="button" class="btn btn-info btn-modificar" data-toggle="modal" data-target="#modalModTran" onclick="cargar_modal(<?=$row->id_trs?>)">Modificar</button></td>
@@ -172,6 +172,12 @@
     <script>
         $('#transactionstable').DataTable({
             responsive: true,
+            "order": [[ 2, "desc" ]],
+            "columnDefs": [{
+                targets: 1,
+                data: 'Monto',
+                render: $.fn.dataTable.render.number('.',',',0,'$')
+            }],
             "language": {
                 "sProcessing":     "Procesando...",
                 "sLengthMenu":	   "Mostrar _MENU_ registros",

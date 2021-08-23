@@ -146,7 +146,7 @@
     </script>
 
     <!-- Datatable Traduccion -->
-    <script type="text/javascript" src="../../docs/js/datatableOpt.js"></script> 
+    <script type="text/javascript" src="../../docs/js/acctable.js"></script> 
 </body>
 
 </html>

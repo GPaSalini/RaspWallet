@@ -8,8 +8,9 @@ class Cuenta{
 
     public function get_AccountList($id){
         try {
-            $sql = "SELECT * FROM cuenta WHERE id_usr=$id ORDER BY id_acc ASC;";
-            $result = $this->bd->query($sql);
+            $sql = "SELECT * FROM cuenta WHERE id_usr=$id ORDER BY account ASC;";
+            $result = $this->bd->prepare($sql);
+            $result->execute();
             if($result->rowCount()>0){
                 $accounts = $result->fetchAll(PDO::FETCH_OBJ);
                 return $accounts;

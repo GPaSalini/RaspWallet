@@ -20,7 +20,7 @@
     margin-left: -12rem;
 }
 .list-group-item{
-    border-bottom-width: 0px !important;
+    border-width: 0px !important;
 }
 
 /* Datatable*/
@@ -28,6 +28,10 @@
     border-collapse: collapse;
     font-size: 12px;
     width: 100%;
+}
+.page-item.active .page-link {
+    background-color: #500505 !important;
+    border-color: #720c0c !important; 
 }
 
 /* On smaller screens, where height is less than 640px, change the style of the sidenav (less padding and a smaller font size) */
@@ -70,19 +74,62 @@
     }
 }
 
+.thead-dark th {
+    background-color: #500505 !important;
+    border-color: #720c0c !important;
+}
+
+.sidebar-login, #form-login {
+    background-color: #720c0c !important;
+}
+
 h2.titulo {
     text-align: center;
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card {
+    border: 0px solid !important;
+}
+
+.modal-header {
+    background-color: #720c0c;
+    color: #ffffff; 
+    border: 0px solid #000000b0;
+    font-weight: bolder;
+}
+
+.modal-body {
+    background-color: #ffffffbe;
+    color: #000000b0; 
+    border: 1px solid #000000b0;
+    font-weight: bolder;
+}
+
+form div label {
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+
+.bg-raspi {
+    background-color: #720c0c !important;
 }
 
 /* Botones */
+.btn-menu {
+    background-color: #720c0c !important;
+}
+.btn-menu:hover, .btn-menu:focus, .btn-menu:active {
+    background-color: #991f1f !important;
+}
 .btn-menusb{
     margin: 10px;
     float: left;
-    background-color: #000000ab !important;
+    background-color: #830f0fda !important;
     color: #ffffff !important;
-    font-size: 15px !important;
+    font-weight: bolder;
+    font-size: 20px !important;
 }
 .btn-menusb:Hover {
     background-color: #ffffff !important; 
@@ -91,44 +138,50 @@ h2.titulo {
 .btn-nuevo {
     margin: 10px;
     float: right;
-    background-color: #000000ab !important;
+    background-color: #830f0fda !important;
     color: #ffffff !important;
-    font-size: 15px !important;
+    font-size: 20px !important;
+    font-weight: bolder !important;
 }
 .btn-nuevo:Hover {
     background-color: #ffffff !important; 
     color: #000000ab !important;
+    font-weight: bolder !important;
 }
 .btn-confirmar {
     display: inline;
     position: relative;
     float: right;
-    background-color: #3fca15be;
+    background-color: #318118 !important;
     color: rgb(255, 255, 255); 
-    border: 1px solid #3700ffb0;
+    border: 1px solid #000000b0 !important;
+    font-weight: bolder;
 }
 .btn-confirmar:hover { 
-    background-color: #ffffff;
+    background-color: #ffffff !important;
     color: rgb(0, 0, 0);
+    font-weight: bolder;
 }
 .btn-cancelar{
     display: inline;
-    background-color: #ff0000be;
+    background-color: #720c0c !important;
     color: #ffffff; 
-    border: 1px solid #3700ffb0;
+    border: 1px solid #000000b0 !important;
+    font-weight: bolder;
 }
 .btn-cancelar:hover{
-    background-color: #ffffffab;
+    background-color: #ffffffab !important;
     color: rgb(0, 0, 0);
+    font-weight: bolder;
 }
 .btn-modificar {
-    background-color: #000000ab !important;
+    background-color: #720c0c  !important;
     color: #ffffff !important;
     font-size: 12px;
 }
 .btn-modificar:hover {
     background-color: #ffffff !important; 
-    color: #000000ab !important;
+    color: #720c0c  !important;
 }
 
 .centrado{

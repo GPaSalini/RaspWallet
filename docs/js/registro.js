@@ -3,27 +3,18 @@ $(document).ready(function(){
       e.preventDefault()
     })
 
-    $("#confirmar").click(function(){
+    $("#confirmarReg").click(function(){
+        if (document.forms["form-register"]["username"].value=="" || document.forms["form-register"]["pass"].value==""  || document.forms["form-register"]["Rpass"].value==""  || document.forms["form-register"]["answer"].value=="") {
+            alert_modal("#modalReg","Complete todos los campos",0);
+            return;
+        }
         $.ajax({
             url: "../controllers/signup.php",
             type: "POST",
             data: $("#form-register").serialize(),
             success: function(res){  
-                alert_modal(res.mensaje,res.estado)
+                alert_modal("#modalReg",res.mensaje,res.estado)
             }
         })
     })
 })
-
-//Modal con el mensaje de alerta
-function alert_modal(msn,success){
-    classAlert = " "
-    if (success==1){
-        classAlert = "modal-body alert alert-success"
-    }else{
-        classAlert = "modal-body alert alert-danger"
-    }
-    document.getElementById("msnAlert").innerHTML = msn
-    document.getElementById("alerta").className = classAlert
-    $("#modAlert").modal("show")
-}

@@ -1,7 +1,7 @@
 <?php
 class BD{
     private $user="postgres";
-    private $password="PASSWORD_HERE";
+    private $password="OnadroiG_pg";
     private $bd_name="postgres";
     private $port="5432";
     private $server="localhost";

@@ -4,6 +4,10 @@ $(document).ready(function(){
     })
 
     $("#confirmarNew").click(function(){
+        if (document.forms["form-newAcc"]["nCuenta"].value=="" || document.forms["form-newAcc"]["nDesc"].value=="") {
+            alert_modal("#modalNewAcc","Complete todos los campos",0);
+            return;
+        }
         $.ajax({
             url: "./newCuenta.php",
             type: "POST",
@@ -15,6 +19,10 @@ $(document).ready(function(){
     })
 
     $("#confirmarMod").click(function(){
+        if (document.forms["form-modAcc"]["mCuenta"].value=="" || document.forms["form-modAcc"]["mDesc"].value=="") {
+            alert_modal("#modalModAcc","Complete todos los campos",0);
+            return;
+        }
         $.ajax({
             url: "./modCuenta.php",
             type: "POST",
@@ -33,27 +41,6 @@ $(document).ready(function(){
         clean_modal("form-modAcc")
     })
 })
-
-//Modal con el mensaje de alerta
-function alert_modal(mod,msn,success){
-    classAlert = " "
-    if (success==1){
-        classAlert = "modal-body alert alert-success"
-    }else{
-        classAlert = "modal-body alert alert-danger"
-    }
-    $(mod).modal("hide")
-    document.getElementById("msnAlert").innerHTML = msn
-    document.getElementById("alerta").className = classAlert
-    $("#modAlert").modal("show")
-    $("#modAlert").on('hidden.bs.modal',function(){ 
-        if (success==1){
-            location.reload()
-        }else{
-            $(mod).modal("show")
-        }
-    });
-}
 
 //Limpia los inputs del modal
 function clean_modal(mod){

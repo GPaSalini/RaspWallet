@@ -10,6 +10,6 @@
 
         require_once("../views/vistaCuentas.php");
     }else{
-        header("location:../views/index.php");
+        header("location: ./ctrlBienvenido.php");
     } 
 ?>

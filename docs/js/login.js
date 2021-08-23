@@ -4,13 +4,21 @@ $(document).ready(function(){
     })
 
     $("#confirmar").click(function(){
+        if (document.forms["form-login"]["username"].value=="" || document.forms["form-login"]["pass"].value=="") {
+            document.getElementById("msnAlert2").innerHTML = "Complete todos los campos"
+            document.getElementById("alerta2").className = "modal-body alert alert-danger"
+            $("#modAlert2").modal("show")
+            return;
+        }
         $.ajax({
             url: "../controllers/login.php",
             type: "POST",
             data: $("#form-login").serialize(),
             success: function(res){ 
                 if (res.estado==0) {
-                    alert_modal(res.mensaje)
+                    document.getElementById("msnAlert2").innerHTML = res.mensaje
+                    document.getElementById("alerta2").className = "modal-body alert alert-danger"
+                    $("#modAlert2").modal("show")
                 }else{
                     window.location.assign ("../controllers/ctrlCuentas.php");
                 }
@@ -18,11 +26,3 @@ $(document).ready(function(){
         })
     })
 })
-
-//Modal con el mensaje de alerta
-function alert_modal(msn){
-    classAlert = "modal-body alert alert-danger"
-    document.getElementById("msnAlert").innerHTML = msn
-    document.getElementById("alerta").className = classAlert
-    $("#modAlert").modal("show")
-}

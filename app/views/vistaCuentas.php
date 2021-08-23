@@ -2,6 +2,7 @@
 <html lang="es">
 
 <head>
+<title>RaspWallet - Cuentas</title>
 <?php require_once("../views/partials/head.php")?>
 </head>
 
@@ -20,7 +21,7 @@
 
             <div class="card" style="padding: 5px 10px 5px; margin: 10px;">
                 <table class="table table-bordered mr-4 pr-7" style="width:100%" id="accountstable">
-                    <thead class="thead-dark">
+                    <thead class="thead-dark bg-raspi">
                         <tr>
                             <th>Cuenta</th>
                             <th>Comentario</th>
@@ -57,8 +58,8 @@
                                     <label for="nDesc">Descripcion</label>
                                     <input id="nDesc" type="text" class="form-control inputuser modal-input" placeholder="255 caracteres maximo" name="nDesc" maxlength="255"> 
                                 </div>
-                                <button id="cancelarNew" type="button" class="btn btn-default btn-cancelar" data-dismiss="modal">Cancelar</button>
-                                <button id="confirmarNew" type="submit" class="btn btn-default btn-confirmar">Confirmar</button>
+                                <button id="confirmarNew" type="submit" class="btn btn-confirmar col-md-12">Confirmar</button>
+                                <button id="cancelarNew" type="button" class="btn btn-cancelar col-md-12" data-dismiss="modal">Cancelar</button>
                             </form>
                         </div>
                     </div>
@@ -85,9 +86,9 @@
                                 <div class="form-group">
                                     <label for="mDesc">Descripcion</label>
                                     <input id="mDesc" type="text" class="form-control inputuser modal-input" name="mDesc" maxlength="255"> 
-                                </div>
-                                <button id="cancelarMod" type="button" class="btn btn-default btn-cancelar" data-dismiss="modal">Cancelar</button>
-                                <button id="confirmarMod" type="submit" class="btn btn-default btn-confirmar">Confirmar</button>
+                                </div>                                
+                                <button id="confirmarMod" type="submit" class="btn btn-confirmar col-md-12">Confirmar</button>
+                                <button id="cancelarMod" type="button" class="btn btn-cancelar col-md-12" data-dismiss="modal">Cancelar</button>
                             </form>
                         </div>
                     </div>
@@ -114,14 +115,6 @@
         <!-- Fin Contenido -->
     </div>
 
-    <!-- Fontawesome JS -->
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-
-    <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-    
     <!-- Datatables JS -->
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
@@ -131,6 +124,7 @@
     
     <!-- Cuentas JS -->
     <script type="text/javascript" src="../../docs/js/cuentas.js"></script> 
+    <script type="text/javascript" src="../../docs/js/alerta.js"></script> 
 
     <!-- Sidebar JS -->
     <script>

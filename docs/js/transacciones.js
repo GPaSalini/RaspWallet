@@ -4,6 +4,10 @@ $(document).ready(function(){
     })
 
     $("#confirmarNew").click(function(){
+        if (document.forms["form-newTran"]["nQn"].value=="" || document.forms["form-newTran"]["nDate"].value==""  || document.forms["form-newTran"]["nDesc"].value=="") {
+            alert_modal("#modalNewTran","Complete todos los campos",0);
+            return;
+        }
         $.ajax({
             url: "./newTransaccion.php",
             type: "POST",
@@ -15,6 +19,10 @@ $(document).ready(function(){
     })
 
     $("#confirmarMod").click(function(){
+        if (document.forms["form-modTran"]["mQn"].value=="" || document.forms["form-modTran"]["mDate"].value==""  || document.forms["form-modTran"]["mDesc"].value=="") {
+            alert_modal("#modalModTran","Complete todos los campos",0);
+            return;
+        }
         $.ajax({
             url: "./modTransaccion.php",
             type: "POST",
@@ -33,27 +41,6 @@ $(document).ready(function(){
         clean_modal("form-modTran")
     })
 })
-
-//Modal con el mensaje de alerta
-function alert_modal(mod,msn,success){
-    classAlert = " "
-    if (success==1){
-        classAlert = "modal-body alert alert-success"
-    }else{
-        classAlert = "modal-body alert alert-danger"
-    }
-    $(mod).modal("hide")
-    document.getElementById("msnAlert").innerHTML = msn
-    document.getElementById("alerta").className = classAlert
-    $("#modAlert").modal("show")
-    $("#modAlert").on('hidden.bs.modal',function(){ 
-        if (success==1){
-            location.reload()
-        }else{
-            $(mod).modal("show")
-        }
-    });
-}
 
 //Limpia los inputs del modal
 function clean_modal(mod){

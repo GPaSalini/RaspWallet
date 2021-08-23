@@ -4,6 +4,24 @@
 <head>
 <title>RaspWallet - Cuentas</title>
 <?php require_once("../views/partials/head.php")?>
+
+<!-- Datatables CSS-->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.bootstrap4.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
+
+<!-- Datatables JS -->
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.bootstrap4.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js" ></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js" ></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js" ></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js" ></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js" ></script>
 </head>
 
 <body>
@@ -20,12 +38,12 @@
             <hr style="width:90%; margin:auto; margin-bottom:20px; margin-top:20px; background-color:black;"/>
 
             <div class="card" style="padding: 5px 10px 5px; margin: 10px;">
-                <table class="table table-bordered mr-4 pr-7" style="width:100%" id="accountstable">
+                <table class="table table-bordered mr-4 pr-7" style="width:100%" id="dttable">
                     <thead class="thead-dark bg-raspi">
                         <tr>
                             <th>Cuenta</th>
                             <th>Comentario</th>
-                            <th>Modificar</th>
+                            <th>Accion</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,7 +51,7 @@
                     <tr>
                         <td><?= $row->account?></td>
                         <td><?= $row->description?></td>
-                        <td><button type="button" class="btn btn-info btn-modificar" data-toggle="modal" data-target="#modalModAcc" onclick="cargar_modal(<?=$row->id_acc?>)">Modificar</button></td>
+                        <td><button type="button" class="btn btn-info btn-modificar" title="Modificar" data-toggle="modal" data-target="#modalModAcc" onclick="cargar_modal(<?=$row->id_acc?>)"><i class="fas fa-edit"></i></button></td>
                     </tr>
                     <?php endforeach; endif; ?>
                     </tbody>
@@ -114,17 +132,10 @@
         </div>
         <!-- Fin Contenido -->
     </div>
-
-    <!-- Datatables JS -->
-    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.bootstrap4.min.js"></script>
-    <script type="text/javascript" src= "https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
     
     <!-- Cuentas JS -->
-    <script type="text/javascript" src="../../docs/js/cuentas.js"></script> 
     <script type="text/javascript" src="../../docs/js/alerta.js"></script> 
+    <script type="text/javascript" src="../../docs/js/cuentas.js"></script> 
 
     <!-- Sidebar JS -->
     <script>
@@ -135,35 +146,7 @@
     </script>
 
     <!-- Datatable Traduccion -->
-    <script>
-        $('#accountstable').DataTable({
-            responsive: true,
-            "language": {
-                "sProcessing":     "Procesando...",
-                "sLengthMenu":	   "Mostrar _MENU_ registros",
-                "sZeroRecords":    "No se encontraron resultados",
-                "sEmptyTable":     "Ningún dato disponible en esta tabla",
-                "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
-                "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-                "sInfoPostFix":    "",
-                "sSearch":         "Buscar:&nbsp;&nbsp;",
-                "sUrl":            "",
-                "sInfoThousands":  ",",
-                "sLoadingRecords": "Cargando...",
-                "oPaginate": {
-                "sFirst":    "Primero",
-                "sLast":     "Último",
-                "sNext":     "Siguiente",
-                "sPrevious": "Anterior"
-                },
-                "oAria": {
-                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                }
-            }
-        });
-    </script>
+    <script type="text/javascript" src="../../docs/js/datatableOpt.js"></script> 
 </body>
 
 </html>

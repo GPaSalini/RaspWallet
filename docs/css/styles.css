@@ -33,6 +33,12 @@
     background-color: #500505 !important;
     border-color: #720c0c !important; 
 }
+.dataTables_info{
+    float: right !important;
+}
+.dataTables_length{
+    float: left !important;
+}
 
 /* On smaller screens, where height is less than 640px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-width: 720px) {
@@ -101,7 +107,6 @@ h2.titulo {
 }
 
 .modal-body {
-    background-color: #ffffffbe;
     color: #000000b0; 
     border: 1px solid #000000b0;
     font-weight: bolder;
@@ -117,6 +122,12 @@ form div label {
 }
 
 /* Botones */
+.btn-secondary {
+    background-color: #720c0cdf !important;
+}
+.btn-secondary:hover .btn-secondary:focus, .btn-secondary:active {
+    background-color: #720c0c !important;
+}
 .btn-menu {
     background-color: #720c0c !important;
 }

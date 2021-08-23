@@ -13,6 +13,6 @@
 
         require_once("../views/vistaTransacciones.php");
     }else{
-        header("location:../views/index.php");
+        header("location: ./ctrlBienvenido.php");
     }
 ?>

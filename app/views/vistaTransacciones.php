@@ -29,7 +29,7 @@
         <?php require_once("../views/partials/sidebar.php")?>
 
         <!-- Inicio Contenido -->
-        <div id="page-content-wrapper">
+        <div id="page-content-wrapper" class="col-md-10 col-lg-10 col-sm-10 col-10 col-xl-10">
             <button class="btn btn-secondary btn-menusb" id="menu-toggle"><i class="fas fa-bars"></i></button>
 
             <!-- Inicio Datatable -->
@@ -37,7 +37,7 @@
             <h2 class="mx-7 titulo">Transacciones</h2>
             <hr style="width:90%; margin:auto; margin-bottom:20px; margin-top:20px; background-color:black;"/>
 
-            <div class="card" style="padding: 5px 10px 5px; margin: 10px;">
+            <div class="card" style="margin: 10px;">
                 <table class="table table-bordered mr-4 pr-7" style="width:100%" id="dttable">
                     <thead class="thead-dark">
                         <tr>
@@ -170,6 +170,11 @@
         $("#menu-toggle").click(function(e) {
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
+            if ($("#wrapper").hasClass("toggled")) {
+                $("#page-content-wrapper").attr('class','col-md-12 col-lg-12 col-sm-12 col-12 col-xl-12');
+            } else {
+                $("#page-content-wrapper").attr('class','col-md-10 col-lg-10 col-sm-10 col-10 col-xl-10');
+            }
         });
     </script>
 

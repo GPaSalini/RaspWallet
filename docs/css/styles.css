@@ -78,6 +78,12 @@
         min-width: 0;
         width: 0;
     }
+    .dataTables_info{
+        float: none !important;
+    }
+    .dataTables_length{
+        float: none !important;
+    }
 }
 
 .thead-dark th {
@@ -95,20 +101,30 @@ h2.titulo {
     margin-right: auto;
 }
 
+#wrapper {
+    background-color:whitesmoke;
+}
 .card {
     border: 0px solid !important;
+    padding: 12px;
+}
+.card-header {
+    background-color: #720c0c;
+    color: #ffffff; 
 }
 
+.modal-content {
+    border: 0px solid #000000 !important;
+}
 .modal-header {
     background-color: #720c0c;
     color: #ffffff; 
-    border: 0px solid #000000b0;
+    border: 0px solid #000000 !important;
     font-weight: bolder;
 }
-
 .modal-body {
     color: #000000b0; 
-    border: 1px solid #000000b0;
+    border: 0px solid #000000 !important;
     font-weight: bolder;
 }
 

@@ -5,6 +5,8 @@
 <title>RaspWallet - Cuentas</title>
 <?php require_once("../views/partials/head.php")?>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+
 <!-- Datatables CSS-->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.bootstrap4.min.css">
@@ -32,32 +34,14 @@
         <div id="page-content-wrapper" class="col-md-10 col-lg-10 col-sm-10 col-10 col-xl-10">
             <button type="button" class="btn btn-secondary btn-menusb" id="menu-toggle"><i class="fas fa-bars"></i></button>
 
-            <!-- Inicio Datatable -->
-            <button id="btnNew" type="button" class="btn btn-info btn-nuevo" data-toggle="modal" data-target="#modalNewAcc">+</button>
-            <h2 class="mx-7 titulo">Cuentas</h2>
-            <hr style="width:90%; margin:auto; margin-bottom:20px; margin-top:20px; background-color:black;"/>
-
-            <div class="card" style="margin: 10px;">
-                <table class="table table-bordered mr-4 pr-7" style="width:100%" id="dttable">
-                    <thead class="thead-dark bg-raspi">
-                        <tr>
-                            <th>Cuenta</th>
-                            <th>Comentario</th>
-                            <th>Accion</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php if($accounts): foreach($accounts as $row): ?>
-                    <tr>
-                        <td><?= $row->account?></td>
-                        <td><?= $row->description?></td>
-                        <td><button type="button" class="btn btn-info btn-modificar" title="Modificar" data-toggle="modal" data-target="#modalModAcc" onclick="cargar_modal(<?=$row->id_acc?>)"><i class="fas fa-edit"></i></button></td>
-                    </tr>
-                    <?php endforeach; endif; ?>
-                    </tbody>
-                </table>
+            <div class="card col-md-5 col-lg-5 col-sm-5">
+                <div class="card-header">
+                    <h4>grafico 1</h4>
+                </div>
+                <div class="card-body">
+                    <canvas id="myChart" width="400" height="400"></canvas>
+                </div>
             </div>
-            <!-- Fin Datatable -->
 
             <!-- Inicio Modal: Nueva cuenta  -->
             <div id="modalNewAcc" class="modal fade" role="dialog" data-backdrop="static">
@@ -132,6 +116,45 @@
         </div>
         <!-- Fin Contenido -->
     </div>
+
+    <!-- Grafico -->
+    <script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    </script>
     
     <!-- Cuentas JS -->
     <script type="text/javascript" src="../../docs/js/alerta.js"></script> 

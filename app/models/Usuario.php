@@ -9,7 +9,8 @@ class Usuario{
     public function get_UsersList(){
         try {
             $sql = "SELECT * FROM usuario ORDER BY id_usr ASC;";
-            $result = $this->bd->query($sql);
+            $result = $this->bd->prepare($sql);
+            $result->execute();
             if($result->rowCount()>0){
                 $users = $result->fetchAll(PDO::FETCH_OBJ);
                 return $users;
@@ -23,8 +24,10 @@ class Usuario{
 
     public function get_User($id){
         try {
-            $sql = "SELECT * FROM usuario WHERE id_usr=$id;";
-            $result = $this->bd->query($sql);
+            $sql = "SELECT * FROM usuario WHERE id_usr=:id;";
+            $result = $this->bd->prepare($sql);
+            $result->bindParam(':id',$id);
+            $result->execute();
             if($result->rowCount()==1){
                 $user = $result->fetchAll(PDO::FETCH_OBJ);
                 return $user;
@@ -40,7 +43,7 @@ class Usuario{
         try {
             $sql = "SELECT * FROM usuario WHERE username=:username;";
             $result = $this->bd->prepare($sql);
-            $result->bindParam('username',$username);
+            $result->bindParam(':username',$username);
             $result->execute();
             if($result->rowCount()==1){
                 $user = $result->fetchAll(PDO::FETCH_OBJ);
@@ -57,10 +60,10 @@ class Usuario{
         try{
             $sql = "INSERT INTO usuario(username,password,question,answer) VALUES (:username,:password,:question,:answer);";
             $result = $this->bd->prepare($sql);
-            $result->bindParam('username',$username);
-            $result->bindParam('password',$password);
-            $result->bindParam('question',$question);
-            $result->bindParam('answer',$answer);
+            $result->bindParam(':username',$username);
+            $result->bindParam(':password',$password);
+            $result->bindParam(':question',$question);
+            $result->bindParam(':answer',$answer);
             $result->execute();
             return true;
         }catch(PDOexception $e){
@@ -70,8 +73,10 @@ class Usuario{
 
     public function put_User($id,$password){
         try{
-            $sql = "UPDATE usuario SET password=$password WHERE id_usr=$id;";
-            $result = $this->bd->query($sql);
+            $sql = "UPDATE usuario SET password=$password WHERE id_usr=:id;";
+            $result = $this->bd->prepare($sql);
+            $result->bindParam(':id',$id);
+            $result->execute();
             return true;
         }catch(PDOexception $e){
             return false;

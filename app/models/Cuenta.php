@@ -24,8 +24,10 @@ class Cuenta{
 
     public function get_Account($id){
         try {
-            $sql = "SELECT * FROM cuenta WHERE id_acc=$id;";
-            $result = $this->bd->query($sql);
+            $sql = "SELECT * FROM cuenta WHERE id_acc=:id;";
+            $result = $this->bd->prepare($sql);
+            $result->bindParam(':id',$id);
+            $result->execute();
             if($result->rowCount()==1){
                 $account = $result->fetchAll(PDO::FETCH_OBJ);
                 return $account;

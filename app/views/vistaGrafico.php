@@ -34,7 +34,7 @@
         <div id="page-content-wrapper" class="col-md-10 col-lg-10 col-sm-10 col-10 col-xl-10">
             <button type="button" class="btn btn-secondary btn-menusb" id="menu-toggle"><i class="fas fa-bars"></i></button>
 
-            <div class="card col-md-5 col-lg-5 col-sm-5">
+            <div class="card col-md-6 col-lg-6 col-sm-6" style="margin-top: 10px;">
                 <div class="card-header">
                     <h4>grafico 1</h4>
                 </div>
@@ -118,47 +118,11 @@
     </div>
 
     <!-- Grafico -->
-    <script>
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-    </script>
+    
     
     <!-- Cuentas JS -->
     <script type="text/javascript" src="../../docs/js/alerta.js"></script> 
-    <script type="text/javascript" src="../../docs/js/cuentas.js"></script> 
+    <!-- ###### <script type="text/javascript" src="../../docs/js/grafico.js"></script>    -->
 
     <!-- Sidebar JS -->
     <script>
@@ -173,8 +137,34 @@
         });
     </script>
 
+    <!-- Grafico -->
+    <script>
+        var labelsA = [];
+        var xVals = [];
+        <?php $i=0; foreach($labels as $rowL): ?>
+        labelsA.push("<?= $rowL ?>");
+        xVals.push(<?= $xVals[$i] ?>);
+        <?php $i = $i+1?>
+        <?php endforeach ?>
+        var chartdata = {
+            labels: labelsA,
+            datasets: [
+                {
+                    label: 'total',
+                    backgroundColor: '#49e2ff',
+                    borderColor: '#46d5f1',
+                    hoverBackgroundColor: '#CCCCCC',
+                    hoverBorderColor: '#666666',
+                    data: xVals
+                }
+            ]
+        };
+        var grafico = $("#myChart");
+        new Chart(grafico, {type: 'bar', data: chartdata, options: {responsive: true}});
+    </script>
+
     <!-- Datatable Traduccion -->
-    <script type="text/javascript" src="../../docs/js/acctable.js"></script> 
+    <script type="text/javascript" src="../../docs/js/acctable.js"></script>
 </body>
 
 </html>

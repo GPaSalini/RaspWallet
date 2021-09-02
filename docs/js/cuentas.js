@@ -4,8 +4,8 @@ $(document).ready(function(){
     })
 
     $("#confirmarNew").click(function(){
-        if (document.forms["form-newAcc"]["nCuenta"].value=="" || document.forms["form-newAcc"]["nDesc"].value=="") {
-            alert_modal("#modalNewAcc","Complete todos los campos",0);
+        if (document.forms["form-newAcc"]["nCuenta"].value=="") {
+            alert_modal("#modalNewAcc","Complete el campo de nombre de cuenta",0);
             return;
         }
         $.ajax({
@@ -19,8 +19,8 @@ $(document).ready(function(){
     })
 
     $("#confirmarMod").click(function(){
-        if (document.forms["form-modAcc"]["mCuenta"].value=="" || document.forms["form-modAcc"]["mDesc"].value=="") {
-            alert_modal("#modalModAcc","Complete todos los campos",0);
+        if (document.forms["form-modAcc"]["mCuenta"].value=="") {
+            alert_modal("#modalModAcc","Complete el campo de nombre de cuenta",0);
             return;
         }
         $.ajax({

@@ -6,12 +6,18 @@
         
         $bd = new BD();
         $tra = new Transaccion($bd->conectar());
-        $transacciones = $tra->get_TransactionArray(30);
+        $dateCurr = DateTime::createFromFormat('Y-m-d',date("Y-m-d"));
+        $date1 = DateTime::createFromFormat('Y-m-d',date("Y-m-d"));
+        $date1 = $date1->modify(' -1 month');
+        $dateCurr = $dateCurr->format('Y-m-d');
+        $date1 = $date1->format('Y-m-d');
+        $transacciones = $tra->get_TransactionArray($date1,$dateCurr);
 
         $labels = array();
         $xVals = array();
         foreach ($transacciones as $row){
-            $key = array_search($row->datestamp, $labels);
+            $subTime = substr($row->datestamp,0,10);
+            $key = array_search($subTime, $labels);
             if (false !== $key){
                 //si ya esta le suma el valor
                 $sum = $xVals[$key];
@@ -19,7 +25,7 @@
                 $xVals[$key] = $sum;
             } else {
                 //si no esta lo agrega
-                array_push($labels,$row->datestamp);
+                array_push($labels,$subTime);
                 array_push($xVals,$row->quantity);
             }
         }

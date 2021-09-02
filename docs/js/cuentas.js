@@ -63,7 +63,7 @@ function cargar_modal(id_acc){
             document.getElementById("mDesc").value = res[0].description
         },
         error: function() {
-            console.log("No se ha podido obtener la información")
+
         }
     })
 }

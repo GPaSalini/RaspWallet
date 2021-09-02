@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-<title>RaspWallet - Cuentas</title>
+<title>RaspWallet - Histograma</title>
 <?php require_once("../views/partials/head.php")?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
@@ -31,72 +31,36 @@
         <?php require_once("../views/partials/sidebar.php")?>
 
         <!-- Inicio Contenido -->
-        <div id="page-content-wrapper" class="col-md-10 col-lg-10 col-sm-10 col-10 col-xl-10">
+        <div id="page-content-wrapper" class="col-md-10 col-lg-10 col-sm-10 col-10 col-xl-10 col-xs-10">
             <button type="button" class="btn btn-secondary btn-menusb" id="menu-toggle"><i class="fas fa-bars"></i></button>
 
-            <div class="card col-md-6 col-lg-6 col-sm-6" style="margin-top: 10px;">
+            <div class="card col-md-5 col-lg-5 col-xl-5 col-sm-10 col-xs-10" style="margin-top: 10px; display: inline-flex;">
                 <div class="card-header">
-                    <h4>grafico 1</h4>
+                    <h4>Grafico</h4>
                 </div>
                 <div class="card-body">
                     <canvas id="myChart" width="400" height="400"></canvas>
                 </div>
             </div>
 
-            <!-- Inicio Modal: Nueva cuenta  -->
-            <div id="modalNewAcc" class="modal fade" role="dialog" data-backdrop="static">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Registrar Nueva Cuenta</h4>
-                        </div>
-                        <div class="modal-body">
-                            <form id="form-newAcc">   
-                                <div class="form-group">
-                                    <label for="nCuenta">Cuenta</label>
-                                    <input id="nCuenta" type="text" class="form-control inputuser modal-input" placeholder="2-50 caracteres" name="nCuenta" minlength="2" maxlength="50" required> 
-                                </div>
-                                <div class="form-group">
-                                    <label for="nDesc">Descripcion</label>
-                                    <input id="nDesc" type="text" class="form-control inputuser modal-input" placeholder="255 caracteres maximo" name="nDesc" maxlength="255"> 
-                                </div>
-                                <button id="confirmarNew" type="submit" class="btn btn-confirmar col-md-12">Confirmar</button>
-                                <button id="cancelarNew" type="button" class="btn btn-cancelar col-md-12" data-dismiss="modal">Cancelar</button>
-                            </form>
-                        </div>
+            <!--Inicio formulario de configuracion del grafico -->
+            <div class="card col-md-4 col-lg-4 col-xl-4 col-sm-10 col-xs-10" style="display: inline-flex;">
+                <form id="form-config">
+                    <div class="form-group">
+                        <input id="mId" type="hidden" name="mId"> 
                     </div>
-                </div>
-            </div>
-            <!-- Fin Modal  -->
-
-            <!-- Inicio Modal: Modificar cuenta  -->
-            <div id="modalModAcc" class="modal fade" role="dialog" data-backdrop="static">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Modificar Cuenta</h4>
-                        </div>
-                        <div class="modal-body">
-                            <form id="form-modAcc">
-                                <div class="form-group">
-                                    <input id="mId" type="hidden" name="mId"> 
-                                </div>
-                                <div class="form-group">
-                                    <label for="mCuenta">Cuenta</label>
-                                    <input id="mCuenta" type="text" class="form-control inputuser modal-input" name="mCuenta" minlength="2" maxlength="50"> 
-                                </div>
-                                <div class="form-group">
-                                    <label for="mDesc">Descripcion</label>
-                                    <input id="mDesc" type="text" class="form-control inputuser modal-input" name="mDesc" maxlength="255"> 
-                                </div>                                
-                                <button id="confirmarMod" type="submit" class="btn btn-confirmar col-md-12">Confirmar</button>
-                                <button id="cancelarMod" type="button" class="btn btn-cancelar col-md-12" data-dismiss="modal">Cancelar</button>
-                            </form>
-                        </div>
+                    <div class="form-group">
+                        <label for="t0">Desde</label>
+                        <input id="t0" type="date" class="form-control inputuser modal-input" name="t0"> 
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="t1">Hasta</label>
+                        <input id="t1" type="date" class="form-control inputuser modal-input" name="t1"> 
+                    </div>                             
+                    <button id="aplicar" type="button" class="btn btn-confirmar col-md-12">Aplicar</button>
+                </form>
             </div>
-            <!-- Fin Modal  -->
+            <!--Fin formulario-->
 
             <!--Inicio Modal de alerta-->
             <div class="modal fade" id="modAlert" role="dialog">
@@ -116,13 +80,22 @@
         </div>
         <!-- Fin Contenido -->
     </div>
-
-    <!-- Grafico -->
-    
     
     <!-- Cuentas JS -->
     <script type="text/javascript" src="../../docs/js/alerta.js"></script> 
-    <!-- ###### <script type="text/javascript" src="../../docs/js/grafico.js"></script>    -->
+    <script type="text/javascript" src="../../docs/js/grafico.js"></script>
+
+    <!-- Grafico -->
+    <script>
+        var labelsA = [];
+        var xVals = [];
+        <?php $i=0; foreach($labels as $rowL): ?>
+        labelsA.push("<?= $rowL ?>");
+        xVals.push(<?= $xVals[$i] ?>);
+        <?php $i = $i+1?>
+        <?php endforeach ?>
+        graficar(labelsA,xVals);
+    </script>
 
     <!-- Sidebar JS -->
     <script>
@@ -135,32 +108,6 @@
                 $("#page-content-wrapper").attr('class','col-md-10 col-lg-10 col-sm-10 col-10 col-xl-10');
             }
         });
-    </script>
-
-    <!-- Grafico -->
-    <script>
-        var labelsA = [];
-        var xVals = [];
-        <?php $i=0; foreach($labels as $rowL): ?>
-        labelsA.push("<?= $rowL ?>");
-        xVals.push(<?= $xVals[$i] ?>);
-        <?php $i = $i+1?>
-        <?php endforeach ?>
-        var chartdata = {
-            labels: labelsA,
-            datasets: [
-                {
-                    label: 'total',
-                    backgroundColor: '#49e2ff',
-                    borderColor: '#46d5f1',
-                    hoverBackgroundColor: '#CCCCCC',
-                    hoverBorderColor: '#666666',
-                    data: xVals
-                }
-            ]
-        };
-        var grafico = $("#myChart");
-        new Chart(grafico, {type: 'bar', data: chartdata, options: {responsive: true}});
     </script>
 
     <!-- Datatable Traduccion -->

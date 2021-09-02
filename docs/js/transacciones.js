@@ -65,7 +65,7 @@ function cargar_modal(id_trs){
             document.getElementById("mDesc").value = res[0].description
         },
         error: function() {
-            console.log("No se ha podido obtener la información")
+            
         }
     })
 }

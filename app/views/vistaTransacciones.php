@@ -29,7 +29,7 @@
         <?php require_once("../views/partials/sidebar.php")?>
 
         <!-- Inicio Contenido -->
-        <div id="page-content-wrapper" class="col-md-10 col-lg-10 col-sm-10 col-10 col-xl-10">
+        <div id="page-content-wrapper" class="col-md-10 col-lg-10 col-sm-10 col-10 col-xl-10 col-xs-10">
             <button class="btn btn-secondary btn-menusb" id="menu-toggle"><i class="fas fa-bars"></i></button>
 
             <!-- Inicio Datatable -->

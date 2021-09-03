@@ -11,8 +11,14 @@ $(document).ready(function(){
             type: "POST",
             data: $("#form-config").serialize(),
             success: function(res){
-                myChart.destroy();
-                graficar(res.labels,res.xVals);
+                if (res.estado==1){
+                    myChart.destroy();
+                    graficar(res.labels,res.xVals);
+                } else {
+                    document.getElementById("msnAlert").innerHTML = res.mensaje
+                    document.getElementById("alerta").className = "modal-body alert alert-danger"
+                    $("#modAlert").modal("show")
+                }
             }
         })
     })
@@ -21,13 +27,13 @@ $(document).ready(function(){
 
 function graficar(labelsArr,xVals){
     var chartdata = {
-        labels: labelsA,
+        labels: labelsArr,
         datasets: [
             {
-                label: 'total',
-                backgroundColor: '#49e2ff',
+                label: "$",
+                backgroundColor: '#720c0c',
                 borderColor: '#46d5f1',
-                hoverBackgroundColor: '#CCCCCC',
+                hoverBackgroundColor: '#500505',
                 hoverBorderColor: '#666666',
                 data: xVals
             }

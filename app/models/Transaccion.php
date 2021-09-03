@@ -75,7 +75,7 @@ class Transaccion{
 
     public function get_TransactionArray($T0,$T1){
         try{
-            $sql = "SELECT * FROM transaccion WHERE datestamp>'$T0' AND datestamp<='$T1';";
+            $sql = "SELECT * FROM transaccion WHERE datestamp>'$T0' AND datestamp<='$T1' ORDER BY datestamp ASC;";
             $result = $this->bd->query($sql);
             $resultado = $result->fetchAll(PDO::FETCH_OBJ);
             return $resultado;

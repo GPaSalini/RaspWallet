@@ -34,17 +34,17 @@
         <div id="page-content-wrapper" class="col-md-10 col-lg-10 col-sm-10 col-10 col-xl-10 col-xs-10">
             <button type="button" class="btn btn-secondary btn-menusb" id="menu-toggle"><i class="fas fa-bars"></i></button>
 
-            <div class="card col-md-5 col-lg-5 col-xl-5 col-sm-10 col-xs-10" style="margin-top: 10px; display: inline-flex;">
+            <div id="GraficoDiv" class="card col-md-8 col-lg-8 col-xl-8 col-sm-10 col-xs-10" style="margin-top: 10px; display: inline-flex;">
                 <div class="card-header">
                     <h4>Grafico</h4>
                 </div>
                 <div class="card-body">
-                    <canvas id="myChart" width="400" height="400"></canvas>
+                    <canvas id="myChart" width="600" height="400"></canvas>
                 </div>
             </div>
 
             <!--Inicio formulario de configuracion del grafico -->
-            <div class="card col-md-4 col-lg-4 col-xl-4 col-sm-10 col-xs-10" style="display: inline-flex;">
+            <div class="card col-md-3 col-lg-3 col-xl-3 col-sm-10 col-xs-10" style="display: inline-flex;">
                 <form id="form-config">
                     <div class="form-group">
                         <input id="mId" type="hidden" name="mId"> 
@@ -104,8 +104,10 @@
             $("#wrapper").toggleClass("toggled");
             if ($("#wrapper").hasClass("toggled")) {
                 $("#page-content-wrapper").attr('class','col-md-12 col-lg-12 col-sm-12 col-12 col-xl-12');
+                $("#GraficoDiv").attr('class','card col-md-7 col-lg-7 col-xl-7 col-sm-12 col-xs-12');
             } else {
                 $("#page-content-wrapper").attr('class','col-md-10 col-lg-10 col-sm-10 col-10 col-xl-10');
+                $("#GraficoDiv").attr('class','card col-md-8 col-lg-8 col-xl-8 col-sm-10 col-xs-10');
             }
         });
     </script>

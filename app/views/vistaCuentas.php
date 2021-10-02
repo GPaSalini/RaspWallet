@@ -29,17 +29,17 @@
         <?php require_once("../views/partials/sidebar.php")?>
 
         <!-- Inicio Contenido -->
-        <div id="page-content-wrapper" class="col-md-10 col-lg-10 col-sm-10 col-10 col-xl-10 col-xs-10">
+        <div id="page-content-wrapper" class="col-md-10 col-lg-10 col-sm-10 col-10 col-xl-10">
             <button type="button" class="btn btn-secondary btn-menusb" id="menu-toggle"><i class="fas fa-bars"></i></button>
 
             <!-- Inicio Datatable -->
             <button id="btnNew" type="button" class="btn btn-info btn-nuevo" data-toggle="modal" data-target="#modalNewAcc">+</button>
             <h2 class="mx-7 titulo">Cuentas</h2>
-            <hr style="width:90%; margin:auto; margin-bottom:20px; margin-top:20px; background-color:black;"/>
+            <hr style="width:90%; margin:auto; margin-bottom:20px; margin-top:20px; background-color:gray;"/>
 
-            <div class="card" style="margin: 10px;">
-                <table class="table table-bordered mr-4 pr-7" style="width:100%" id="dttable">
-                    <thead class="thead-dark bg-raspi">
+            <div class="card m-2">
+                <table class="table mr-4 pr-7" style="width:100%" id="dttable">
+                    <thead class="thead-dark">
                         <tr>
                             <th>Cuenta</th>
                             <th>Comentario</th>
@@ -76,8 +76,8 @@
                                     <label for="nDesc">Descripcion</label>
                                     <input id="nDesc" type="text" class="form-control inputuser modal-input" placeholder="255 caracteres maximo" name="nDesc" maxlength="255"> 
                                 </div>
-                                <button id="confirmarNew" type="submit" class="btn btn-confirmar col-md-12">Confirmar</button>
-                                <button id="cancelarNew" type="button" class="btn btn-cancelar col-md-12" data-dismiss="modal">Cancelar</button>
+                                <button id="confirmarNew" type="submit" class="btn btn-confirmar col-12 mt-2">Confirmar</button>
+                                <button id="cancelarNew" type="button" class="btn btn-cancelar col-12 mt-2" data-dismiss="modal">Cancelar</button>
                             </form>
                         </div>
                     </div>
@@ -105,8 +105,8 @@
                                     <label for="mDesc">Descripcion</label>
                                     <input id="mDesc" type="text" class="form-control inputuser modal-input" name="mDesc" maxlength="255"> 
                                 </div>                                
-                                <button id="confirmarMod" type="submit" class="btn btn-confirmar col-md-12">Confirmar</button>
-                                <button id="cancelarMod" type="button" class="btn btn-cancelar col-md-12" data-dismiss="modal">Cancelar</button>
+                                <button id="confirmarMod" type="submit" class="btn btn-confirmar col-12 mt-2">Confirmar</button>
+                                <button id="cancelarMod" type="button" class="btn btn-cancelar col-12 mt-2" data-dismiss="modal">Cancelar</button>
                             </form>
                         </div>
                     </div>

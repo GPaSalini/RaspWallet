@@ -25,7 +25,7 @@ $(document).ready(function(){
 })
 
 
-function graficar(labelsArr,xVals){
+function graficar(namechart,labelsArr,xVals){
     var chartdata = {
         labels: labelsArr,
         datasets: [
@@ -39,6 +39,6 @@ function graficar(labelsArr,xVals){
             }
         ]
     };
-    var grafico = $("#myChart");
+    var grafico = $("#"+namechart);
     myChart = new Chart(grafico, {type: 'bar', data: chartdata, options: {responsive: true}});
 }

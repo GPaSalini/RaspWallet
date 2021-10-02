@@ -1,3 +1,17 @@
+/* colores propios */
+:root {
+    --main-bg-color: #500505;
+    --main-rpi-color: #720c0c;
+    --main-sel-color: #991f1f;
+    --main-yes-color: #318118;
+    --trans-bg-color: #830f0fda;
+    --trans-rpi-color: #720c0cdf;
+}
+
+.container {
+    margin: 0px !important;
+}
+
 /* Sidebar */
 #sidebar-wrapper {
     min-height: 100vh;
@@ -9,15 +23,18 @@
     font-size: 1.2rem;
 }
 #sidebar-wrapper .list-group {
-    width: 12rem;
-}
-#page-content-wrapper {
-    min-width: 85vw;
-    width: 100%;
-    background-color:whitesmoke;
+    width: 17vw;
+    margin-left: 0vw;
 }
 #wrapper.toggled #sidebar-wrapper {
-    margin-left: -12rem;
+    margin-left: -17vw;
+}
+#page-content-wrapper {
+    background-color:whitesmoke;
+    transition: margin .25s ease-out;
+}
+#wrapper.toggled #page-content-wrapper {
+    background-color:whitesmoke;
 }
 .list-group-item{
     border-width: 0px !important;
@@ -30,8 +47,8 @@
     width: 100%;
 }
 .page-item.active .page-link {
-    background-color: #500505 !important;
-    border-color: #720c0c !important; 
+    background-color: var(--main-bg-color) !important;
+    border-color: var(--main-rpi-color) !important; 
 }
 .dataTables_info{
     float: right !important;
@@ -87,12 +104,16 @@
 }
 
 .thead-dark th {
-    background-color: #500505 !important;
-    border-color: #720c0c !important;
+    background-color: var(--main-bg-color) !important;
+    border-color: var(--main-rpi-color) !important;
+}
+.table td{
+    border-top: 0px !important;
+    border-bottom: 1px solid gray !important;
 }
 
 .sidebar-login, #form-login {
-    background-color: #720c0c !important;
+    background-color: var(--main-rpi-color) !important;
 }
 
 h2.titulo {
@@ -107,24 +128,56 @@ h2.titulo {
 .card {
     border: 0px solid !important;
     padding: 12px;
+    background-color: rgba(206, 205, 205, 0.3);
 }
 .card-header {
-    background-color: #720c0c;
-    color: #ffffff; 
+    background-color: var(--main-rpi-color);
+    color: white; 
+}
+.card-info {
+    font-family: inherit;
+    margin: 1em;
+    position: relative;
+    display: inline !important;
+    width: 37%;
+    isolation: isolate;
+    border: 2px solid var(--main-rpi-color);
+    color:white;
+    padding: .5em 1.5em;
+    background: rgba(0, 0, 0, 0);
+}
+.card-info:hover{
+    color:black;
+}
+.card-info::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    isolation: isolation;
+    z-index: -1;
+    background: var(--main-rpi-color);
+    transform: scale(1,1);
+    transform-origin: left;
+    transition: transform 200ms ease;
+}
+.card-info:hover::after{
+    transform: scale(0,1);
+    transform-origin: left;
+    transition: transform 200ms ease;
 }
 
 .modal-content {
-    border: 0px solid #000000 !important;
+    border: 0px solid black !important;
 }
 .modal-header {
-    background-color: #720c0c;
-    color: #ffffff; 
-    border: 0px solid #000000 !important;
+    background-color: var(--main-rpi-color);
+    color: white; 
+    border: 0px solid black !important;
     font-weight: bolder;
 }
 .modal-body {
     color: #000000b0; 
-    border: 0px solid #000000 !important;
+    border: 0px solid black !important;
     font-weight: bolder;
 }
 
@@ -134,66 +187,76 @@ form div label {
 }
 
 .bg-raspi {
-    background-color: #720c0c !important;
+    background-color: var(--main-rpi-color) !important;
+}
+.bg-sel {
+    background-color: var(--main-sel-color) !important;
+}
+.bg-sel::before {
+    content: 'h';
+    background: white;
+    position: absolute;
+    inset: 0;
+    width: 10px;
+    height: 100%;
 }
 
 /* Botones */
 .btn-secondary {
-    background-color: #720c0cdf !important;
+    background-color: var(--main-rpi-color) !important;
 }
-.btn-secondary:hover .btn-secondary:focus, .btn-secondary:active {
-    background-color: #720c0c !important;
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {
+    background-color: var(--main-sel-color) !important;
 }
 .btn-menu {
-    background-color: #720c0c !important;
+    background-color: var(--main-rpi-color) !important;
 }
 .btn-menu:hover, .btn-menu:focus, .btn-menu:active {
-    background-color: #991f1f !important;
+    background-color: var(--main-sel-color) !important;
 }
 .btn-menusb{
     margin: 10px;
     float: left;
-    background-color: #830f0fda !important;
-    color: #ffffff !important;
+    background-color: var(--main-rpi-color) !important;
+    color: white !important;
     font-weight: bolder;
     font-size: 20px !important;
 }
 .btn-menusb:Hover {
-    background-color: #ffffff !important; 
-    color: #000000ab !important;
+    background-color: white !important; 
+    color: darkslategray !important;
 }
 .btn-nuevo {
     margin: 10px;
     float: right;
-    background-color: #830f0fda !important;
-    color: #ffffff !important;
+    background-color: var(--main-rpi-color) !important;
+    color: white !important;
     font-size: 20px !important;
     font-weight: bolder !important;
 }
 .btn-nuevo:Hover {
-    background-color: #ffffff !important; 
-    color: #000000ab !important;
+    background-color: white !important; 
+    color: darkslategray !important;
     font-weight: bolder !important;
 }
 .btn-confirmar {
     display: inline;
     position: relative;
-    float: right;
-    background-color: #318118 !important;
-    color: rgb(255, 255, 255); 
-    border: 1px solid #000000b0 !important;
+    background-color: var(--main-yes-color) !important;
+    color: white; 
+    border: 1px solid darkslategray !important;
     font-weight: bolder;
 }
 .btn-confirmar:hover { 
-    background-color: #ffffff !important;
-    color: rgb(0, 0, 0);
+    background-color: white !important;
+    color: black;
     font-weight: bolder;
 }
 .btn-cancelar{
     display: inline;
-    background-color: #720c0c !important;
-    color: #ffffff; 
-    border: 1px solid #000000b0 !important;
+    background-color: var(--main-rpi-color) !important;
+    color: white; 
+    border: 1px solid darkslategray !important;
     font-weight: bolder;
 }
 .btn-cancelar:hover{
@@ -202,13 +265,13 @@ form div label {
     font-weight: bolder;
 }
 .btn-modificar {
-    background-color: #720c0c  !important;
-    color: #ffffff !important;
+    background-color: var(--main-rpi-color) !important;
+    color: white !important;
     font-size: 12px;
 }
 .btn-modificar:hover {
-    background-color: #ffffff !important; 
-    color: #720c0c  !important;
+    background-color: white !important; 
+    color: var(--main-rpi-color) !important;
 }
 
 .centrado{

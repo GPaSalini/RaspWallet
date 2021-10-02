@@ -30,8 +30,8 @@
             }
         }
 
-        $var_menu = 4;
-        require_once("../views/vistaGrafico.php");
+        $var_menu = 1;
+        require_once("../views/vistaResumen.php");
     } else {
         header("location: ./ctrlBienvenido.php");
     }

@@ -8,6 +8,7 @@
         $acc = new Cuenta($bd->conectar());
         $accounts = $acc->get_AccountList($_SESSION['id']);
 
+        $var_menu = 2;
         require_once("../views/vistaCuentas.php");
     }else{
         header("location: ./ctrlBienvenido.php");

@@ -11,6 +11,7 @@
         $tran = new Transaccion($bd->conectar());
         $transactions = $tran->get_TransactionList($_SESSION['id']);
 
+        $var_menu = 3;
         require_once("../views/vistaTransacciones.php");
     }else{
         header("location: ./ctrlBienvenido.php");

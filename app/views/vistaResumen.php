@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-<title>RaspWallet - Histograma</title>
+<title>RaspWallet - Resumen</title>
 <?php require_once("../views/partials/head.php")?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
@@ -32,53 +32,51 @@
 
         <!-- Inicio Contenido -->
         <div id="page-content-wrapper">
-            <div class="container" style="padding:auto;">
+            <div class="container">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <div class="col">
                         <button type="button" class="btn btn-secondary btn-menusb" id="menu-toggle"><i class="fas fa-bars"></i></button>
                     </div>
                 </div>
-                <div class="row">
-                    <!--Inicia grafico -->
-                    <div id="GraficoDiv" class="col-md-8 col-lg-8 col-xl-8 col-sm-12 col-xs-12" style="margin-top: 10px; display: inline-flex;">
-                        <div class="card" style="width: 60vw;">
-                            <div class="card-header">
-                                <h4>Grafico</h4>
-                            </div>
-                            <div class="card-body">
-                                <canvas id="myChart" width="600" height="400"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Fin grafico -->
 
-                    <!--Inicio formulario de configuracion del grafico -->
-                    <div class="col-md-4 col-lg-4 col-xl-4 col-sm-10 col-xs-10" style="display: inline-flex;">
+                <div class="row">
+                    <!-- Resumen de los ultimos 30 dias -->
+                    <div id="ResumenDiv" class="col-xs-10 col-sm-10 col-md-6 col-lg-6 col-xl-6">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Fechas</h4>
+                                <h4>Movimientos ultimos 30 dias</h4>
                             </div>
-                            <div class="card-body">
-                                <form id="form-config">
-                                    <div class="form-group">
-                                        <input id="mId" type="hidden" name="mId"> 
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="t0">Desde</label>
-                                        <input id="t0" type="date" class="form-control inputuser modal-input" name="t0"> 
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="t1">Hasta</label>
-                                        <input id="t1" type="date" class="form-control inputuser modal-input" name="t1"> 
-                                    </div>                             
-                                    <button id="aplicar" type="button" class="btn btn-confirmar col-md-12">Aplicar</button>
-                                </form>
+                            <div class="card-body col-md-10">
+                                <canvas id="lastChart"></canvas>
                             </div>
                         </div>
+                        <button class="card-info ml-5">Ingresos del periodo</button>
+                        <button class="card-info">Egresos del periodo</button>
+                        <button class="card-info ml-5">Ingreso mas alto</button>
+                        <button class="card-info">Egreso mas alto</button>
+                        <button class="card-info ml-5">Cuenta de Ingreso mas frecuente</button>
+                        <button class="card-info">Cuenta de Egreso mas frecuente</button>
                     </div>
-                    <!--Fin formulario-->
+                    <!-- Mes mas frecuente: grafico -->
+                    <div id="TopDiv" class="col-xs-10 col-sm-10 col-md-6 col-lg-6 col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>nombre mes con mas movimientos</h4>
+                            </div>
+                            <div class="card-body col-md-10">
+                                <canvas id="topChart"></canvas>
+                            </div>
+                        </div>
+                        <button class="card-info ml-5">Ingresos del periodo</button>
+                        <button class="card-info">Egresos del periodo</button>
+                        <button class="card-info ml-5">Ingreso mas alto</button>
+                        <button class="card-info">Egreso mas alto</button>
+                        <button class="card-info ml-5">Cuenta de Ingreso mas frecuente</button>
+                        <button class="card-info">Cuenta de Egreso mas frecuente</button>
+                    </div>
                 </div>
             </div>
+            <!--Fin formulario-->
 
             <!--Inicio Modal de alerta-->
             <div class="modal fade" id="modAlert" role="dialog">
@@ -101,6 +99,7 @@
     
     <!-- Cuentas JS -->
     <script type="text/javascript" src="../../docs/js/alerta.js"></script> 
+    <!-- Cuentas JS        <script type="text/javascript" src="../../docs/js/resumen.js"></script>  -->
     <script type="text/javascript" src="../../docs/js/grafico.js"></script>
 
     <!-- Grafico -->
@@ -112,7 +111,8 @@
         xVals.push(<?= $xVals[$i] ?>);
         <?php $i = $i+1?>
         <?php endforeach ?>
-        graficar("myChart",labelsA,xVals);
+        graficar("lastChart",labelsA,xVals);
+        graficar("topChart",labelsA,xVals);
     </script>
 
     <!-- Sidebar JS -->

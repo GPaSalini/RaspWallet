@@ -50,11 +50,11 @@
                                 <canvas id="lastChart"></canvas>
                             </div>
                         </div>
-                        <button class="card-info ml-5">Ingresos del periodo</button>
+                        <button class="card-info">Ingresos del periodo</button>
                         <button class="card-info">Egresos del periodo</button>
-                        <button class="card-info ml-5">Ingreso mas alto</button>
+                        <button class="card-info">Ingreso mas alto</button>
                         <button class="card-info">Egreso mas alto</button>
-                        <button class="card-info ml-5">Cuenta de Ingreso mas frecuente</button>
+                        <button class="card-info">Cuenta de Ingreso mas frecuente</button>
                         <button class="card-info">Cuenta de Egreso mas frecuente</button>
                     </div>
                     <!-- Mes mas frecuente: grafico -->
@@ -67,11 +67,11 @@
                                 <canvas id="topChart"></canvas>
                             </div>
                         </div>
-                        <button class="card-info ml-5">Ingresos del periodo</button>
+                        <button class="card-info">Ingresos del periodo</button>
                         <button class="card-info">Egresos del periodo</button>
-                        <button class="card-info ml-5">Ingreso mas alto</button>
+                        <button class="card-info">Ingreso mas alto</button>
                         <button class="card-info">Egreso mas alto</button>
-                        <button class="card-info ml-5">Cuenta de Ingreso mas frecuente</button>
+                        <button class="card-info">Cuenta de Ingreso mas frecuente</button>
                         <button class="card-info">Cuenta de Egreso mas frecuente</button>
                     </div>
                 </div>

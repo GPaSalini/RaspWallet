@@ -10,6 +10,7 @@
 
 .container {
     margin: 0px !important;
+    padding: 0px !important;
 }
 
 /* Sidebar */
@@ -136,10 +137,11 @@ h2.titulo {
 }
 .card-info {
     font-family: inherit;
-    margin: 1em;
+    box-sizing: border-box;
+    margin: 4%;
     position: relative;
     display: inline !important;
-    width: 37%;
+    width: 40%;
     isolation: isolate;
     border: 2px solid var(--main-rpi-color);
     color:white;
@@ -164,6 +166,11 @@ h2.titulo {
     transform: scale(0,1);
     transform-origin: left;
     transition: transform 200ms ease;
+}
+@media screen and (max-width: 720px) {
+    .card-info {
+        width: 90%;
+    }
 }
 
 .modal-content {

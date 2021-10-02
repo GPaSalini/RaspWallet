@@ -41,7 +41,7 @@
                 <div class="row">
                     <!--Inicia grafico -->
                     <div id="GraficoDiv" class="col-md-8 col-lg-8 col-xl-8 col-sm-12 col-xs-12" style="margin-top: 10px; display: inline-flex;">
-                        <div class="card" style="width: 60vw;">
+                        <div class="card">
                             <div class="card-header">
                                 <h4>Grafico</h4>
                             </div>

@@ -25,7 +25,7 @@
 </head>
 
 <body>
-    <div class="d-flex" id="wrapper">
+    <div class="d-flex d-flex-column" id="wrapper">
         <?php require_once("../views/partials/sidebar.php")?>
 
         <!-- Inicio Contenido -->

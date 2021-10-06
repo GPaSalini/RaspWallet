@@ -14,9 +14,16 @@
 }
 
 /* Sidebar */
+.navbar {
+    display: inline;
+    flex-direction: row;
+    padding: 0px;
+}
+/*#wrapper {overflow-x: hidden;}*/
 #sidebar-wrapper {
+    justify-content: baseline;
     min-height: 100vh;
-    width: 17vw;
+    min-width: 17vw;
     margin-left: 0;
     transition: margin .25s ease-out;
 }
@@ -25,13 +32,13 @@
     font-size: 1.2rem;
 }
 #sidebar-wrapper .list-group {
-    width: 100%;
     margin-left: 0vw;
 }
 #wrapper.toggled #sidebar-wrapper {
     margin-left: -17vw;
 }
 #page-content-wrapper {
+    min-width: 83vw;
     background-color:whitesmoke;
     transition: margin .25s ease-out;
 }
@@ -61,6 +68,11 @@
 
 /* On smaller screens, where height is less than 640px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-width: 720px) {
+    .navbar {
+        display: inline;
+        flex-direction: column;
+        padding: 0px;
+    }
     .centrado {
         font-size: 5vh;
     }
@@ -71,9 +83,6 @@
     .list-group{
         min-width: 70vw;
         font-size: 3vh;
-    }
-    .list-group-item{
-        padding: 3vw;
     }
     .list-group input{
         font-size: 3vh;
@@ -90,10 +99,10 @@
         margin-top: 10px;
         margin-left: 10px;
     }
-    .sidebar-login#sidebar-wrapper {
+    .sidebar-login #sidebar-wrapper {
         min-width: 100vw;
     }
-    .sidebar-login#page-content-wrapper {
+    .sidebar-login #page-content-wrapper {
         min-width: 0;
         width: 0;
     }
@@ -141,7 +150,7 @@ h2.titulo {
     box-sizing: border-box;
     margin: 4%;
     position: relative;
-    display: inline !important;
+    display: inline-flex !important;
     width: 40%;
     isolation: isolate;
     border: 2px solid var(--main-rpi-color);
@@ -201,7 +210,7 @@ form div label {
     background-color: var(--main-sel-color) !important;
 }
 .bg-sel::before {
-    content: 'h';
+    content: ' ';
     background: white;
     position: absolute;
     inset: 0;
@@ -283,8 +292,9 @@ form div label {
 }
 
 .centrado{
-    margin-left:auto;
-    margin-right:auto;
-    display:block;
+    display: inline;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
+    vertical-align: middle;
 }

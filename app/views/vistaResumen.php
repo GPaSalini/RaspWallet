@@ -27,18 +27,17 @@
 </head>
 
 <body>
-    <div class="d-flex" id="wrapper">
+    <div class="d-flex d-flex-column" id="wrapper">
         <?php require_once("../views/partials/sidebar.php")?>
 
         <!-- Inicio Contenido -->
         <div id="page-content-wrapper">
-            <div class="container">
+            <div class="d-flex">
                 <div class="row">
                     <div class="col">
                         <button type="button" class="btn btn-secondary btn-menusb" id="menu-toggle"><i class="fas fa-bars"></i></button>
                     </div>
                 </div>
-
                 <div class="row">
                     <!-- Resumen de los ultimos 30 dias -->
                     <div id="ResumenDiv" class="col-xs-10 col-sm-10 col-md-6 col-lg-6 col-xl-6">
@@ -46,7 +45,7 @@
                             <div class="card-header">
                                 <h4>Movimientos ultimos 30 dias</h4>
                             </div>
-                            <div class="card-body col-md-10">
+                            <div class="card-body col-md-12">
                                 <canvas id="lastChart"></canvas>
                             </div>
                         </div>
@@ -63,7 +62,7 @@
                             <div class="card-header">
                                 <h4>nombre mes con mas movimientos</h4>
                             </div>
-                            <div class="card-body col-md-10">
+                            <div class="card-body col-md-12">
                                 <canvas id="topChart"></canvas>
                             </div>
                         </div>
@@ -120,11 +119,6 @@
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
-        if ($("#wrapper").hasClass("toggled")) {
-            $("#page-content-wrapper").attr('class','col-md-12 col-lg-12 col-sm-12 col-12 col-xl-12');
-        } else {
-            $("#page-content-wrapper").attr('class','col-md-10 col-lg-10 col-sm-10 col-10 col-xl-10');
-        }
     });
     </script>
 

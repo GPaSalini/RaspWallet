@@ -27,20 +27,20 @@
 </head>
 
 <body>
-    <div class="d-flex" id="wrapper">
+    <div class="d-flex d-flex-column" id="wrapper">
         <?php require_once("../views/partials/sidebar.php")?>
 
         <!-- Inicio Contenido -->
         <div id="page-content-wrapper">
-            <div class="container" style="padding:auto;">
+            <div class="d-flex">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <div class="col">
                         <button type="button" class="btn btn-secondary btn-menusb" id="menu-toggle"><i class="fas fa-bars"></i></button>
                     </div>
                 </div>
                 <div class="row">
                     <!--Inicia grafico -->
-                    <div id="GraficoDiv" class="col-md-8 col-lg-8 col-xl-8 col-sm-12 col-xs-12" style="margin-top: 10px; display: inline-flex;">
+                    <div id="GraficoDiv" class="col-md-8 col-lg-8 col-xl-8 col-sm-12 col-xs-12">
                         <div class="card">
                             <div class="card-header">
                                 <h4>Grafico</h4>
@@ -53,7 +53,7 @@
                     <!--Fin grafico -->
 
                     <!--Inicio formulario de configuracion del grafico -->
-                    <div class="col-md-4 col-lg-4 col-xl-4 col-sm-10 col-xs-10" style="display: inline-flex;">
+                    <div id="DateDiv" class="col-md-4 col-lg-4 col-xl-4 col-sm-12 col-xs-12">
                         <div class="card">
                             <div class="card-header">
                                 <h4>Fechas</h4>
@@ -121,9 +121,11 @@
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
         if ($("#wrapper").hasClass("toggled")) {
-            $("#page-content-wrapper").attr('class','col-md-12 col-lg-12 col-sm-12 col-12 col-xl-12');
+            $("#GraficoDiv").attr('class','col-md-9 col-lg-9 col-xl-9 col-sm-12 col-xs-12');
+            $("#DateDiv").attr('class','col-md-3 col-lg-3 col-xl-3 col-sm-12 col-xs-12');
         } else {
-            $("#page-content-wrapper").attr('class','col-md-10 col-lg-10 col-sm-10 col-10 col-xl-10');
+            $("#GraficoDiv").attr('class','col-md-8 col-lg-8 col-xl-8 col-sm-12 col-xs-12');
+            $("#DateDiv").attr('class','col-md-4 col-lg-4 col-xl-4 col-sm-12 col-xs-12');
         }
     });
     </script>

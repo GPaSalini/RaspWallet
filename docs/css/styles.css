@@ -23,7 +23,7 @@
 #sidebar-wrapper {
     justify-content: baseline;
     min-height: 100vh;
-    min-width: 17vw;
+    min-width: 16vw;
     margin-left: 0;
     transition: margin .25s ease-out;
 }
@@ -35,10 +35,9 @@
     margin-left: 0vw;
 }
 #wrapper.toggled #sidebar-wrapper {
-    margin-left: -17vw;
+    margin-left: -16vw;
 }
 #page-content-wrapper {
-    min-width: 83vw;
     background-color:whitesmoke;
     transition: margin .25s ease-out;
 }
@@ -50,6 +49,9 @@
 }
 
 /* Datatable*/
+.pagination {
+    flex-wrap: wrap !important;
+}
 #mydatatable{
     border-collapse: collapse;
     font-size: 12px;
@@ -99,8 +101,11 @@
         margin-top: 10px;
         margin-left: 10px;
     }
-    .sidebar-login #sidebar-wrapper {
-        min-width: 100vw;
+    .sidebar-login {
+        min-width: 100vw !important;
+    }
+    #wrapper.toggled .sidebar-login {
+        margin-left: -100vw !important;
     }
     .sidebar-login #page-content-wrapper {
         min-width: 0;
@@ -298,3 +303,4 @@ form div label {
     text-align: center;
     vertical-align: middle;
 }
+

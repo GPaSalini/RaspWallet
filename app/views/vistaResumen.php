@@ -31,50 +31,48 @@
         <?php require_once("../views/partials/sidebar.php")?>
 
         <!-- Inicio Contenido -->
-        <div id="page-content-wrapper">
-            <div class="d-flex">
-                <div class="row">
-                    <div class="col">
-                        <button type="button" class="btn btn-secondary btn-menusb" id="menu-toggle"><i class="fas fa-bars"></i></button>
+        <div id="page-content-wrapper" class="col-md-10 col-lg-10 col-sm-10 col-10 col-xl-10">
+            <button type="button" class="btn btn-secondary btn-menusb" id="menu-toggle"><i class="fas fa-bars"></i></button>
+            <h2 class="mx-7 titulo">Resumen</h2>
+            <hr style="width:90%; margin:auto; margin-bottom:20px; margin-top:20px; background-color:gray;"/>
+
+            <div class="row">
+                <!-- Resumen de los ultimos 30 dias -->
+                <div id="ResumenDiv" class="col-xs-10 col-sm-10 col-md-6 col-lg-6 col-xl-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Movimientos ultimos 30 dias</h4>
+                        </div>
+                        <div class="card-body col-md-12 col-lg-12">
+                            <canvas id="lastChart"></canvas>
+                        </div>
                     </div>
+                    <button class="card-info">Ingresos del periodo</button>
+                    <button class="card-info">Egresos del periodo</button>
+                    <button class="card-info">Ingreso mas alto</button>
+                    <button class="card-info">Egreso mas alto</button>
+                    <button class="card-info">Cuenta de Ingreso mas frecuente</button>
+                    <button class="card-info">Cuenta de Egreso mas frecuente</button>
                 </div>
-                <div class="row">
-                    <!-- Resumen de los ultimos 30 dias -->
-                    <div id="ResumenDiv" class="col-xs-10 col-sm-10 col-md-6 col-lg-6 col-xl-6">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>Movimientos ultimos 30 dias</h4>
-                            </div>
-                            <div class="card-body col-md-12">
-                                <canvas id="lastChart"></canvas>
-                            </div>
+                <!-- Mes mas frecuente: grafico -->
+                <div id="TopDiv" class="col-xs-10 col-sm-10 col-md-6 col-lg-6 col-xl-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>nombre mes con mas movimientos</h4>
                         </div>
-                        <button class="card-info">Ingresos del periodo</button>
-                        <button class="card-info">Egresos del periodo</button>
-                        <button class="card-info">Ingreso mas alto</button>
-                        <button class="card-info">Egreso mas alto</button>
-                        <button class="card-info">Cuenta de Ingreso mas frecuente</button>
-                        <button class="card-info">Cuenta de Egreso mas frecuente</button>
-                    </div>
-                    <!-- Mes mas frecuente: grafico -->
-                    <div id="TopDiv" class="col-xs-10 col-sm-10 col-md-6 col-lg-6 col-xl-6">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>nombre mes con mas movimientos</h4>
-                            </div>
-                            <div class="card-body col-md-12">
-                                <canvas id="topChart"></canvas>
-                            </div>
+                        <div class="card-body col-md-12 col-lg-12">
+                            <canvas id="topChart"></canvas>
                         </div>
-                        <button class="card-info">Ingresos del periodo</button>
-                        <button class="card-info">Egresos del periodo</button>
-                        <button class="card-info">Ingreso mas alto</button>
-                        <button class="card-info">Egreso mas alto</button>
-                        <button class="card-info">Cuenta de Ingreso mas frecuente</button>
-                        <button class="card-info">Cuenta de Egreso mas frecuente</button>
                     </div>
+                    <button class="card-info">Ingresos del periodo</button>
+                    <button class="card-info">Egresos del periodo</button>
+                    <button class="card-info">Ingreso mas alto</button>
+                    <button class="card-info">Egreso mas alto</button>
+                    <button class="card-info">Cuenta de Ingreso mas frecuente</button>
+                    <button class="card-info">Cuenta de Egreso mas frecuente</button>
                 </div>
             </div>
+            
             <!--Fin formulario-->
 
             <!--Inicio Modal de alerta-->
@@ -119,6 +117,11 @@
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
+        if ($("#wrapper").hasClass("toggled")) {
+            $("#page-content-wrapper").attr('class','col-md-12 col-lg-12 col-sm-12 col-12 col-xl-12');
+        } else {
+            $("#page-content-wrapper").attr('class','col-md-10 col-lg-10 col-sm-10 col-10 col-xl-10');
+        }
     });
     </script>
 

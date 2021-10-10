@@ -13,7 +13,7 @@ $(document).ready(function(){
             success: function(res){
                 if (res.estado==1){
                     myChart.destroy();
-                    graficar(res.labels,res.xVals);
+                    graficar("myChart",res.labels,res.xVals);
                 } else {
                     document.getElementById("msnAlert").innerHTML = res.mensaje
                     document.getElementById("alerta").className = "modal-body alert alert-danger"

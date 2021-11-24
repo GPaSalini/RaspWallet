@@ -25,7 +25,7 @@
     if (!$err) {
         $date0 = DateTime::createFromFormat('Y-m-d',$T0);
         $date1 = DateTime::createFromFormat('Y-m-d',$T1);
-        $transacciones = $tra->get_TransactionArray($date0->format('Y-m-d'),$date1->format('Y-m-d'));
+        $transacciones = $tra->get_TransactionArray($_SESSION['id'],$date0->format('Y-m-d'),$date1->format('Y-m-d'));
 
         $labels = array();
         $xVals = array();

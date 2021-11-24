@@ -11,7 +11,7 @@
         $date1 = $date1->modify(' -1 month');
         $dateCurr = $dateCurr->format('Y-m-d');
         $date1 = $date1->format('Y-m-d');
-        $transacciones = $tra->get_TransactionArray($date1,$dateCurr);
+        $transacciones = $tra->get_TransactionArray($_SESSION['id'],$date1,$dateCurr);
 
         $labels = array();
         $xVals = array();

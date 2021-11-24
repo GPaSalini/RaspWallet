@@ -163,8 +163,17 @@ h2.titulo {
     padding: .5em 1.5em;
     background: rgba(0, 0, 0, 0);
 }
-.card-info:hover{
+.card-info > * {
+    position: absolute;
+    inset: 0;
     color:black;
+    z-index: -2;
+}
+.card-info:hover > * {
+    position: absolute;
+    inset: 0;
+    color:black;
+    z-index: -1;
 }
 .card-info::after {
     content: '';

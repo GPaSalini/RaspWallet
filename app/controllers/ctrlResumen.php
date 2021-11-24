@@ -11,11 +11,18 @@
         $date1 = $date1->modify(' -1 month');
         $dateCurr = $dateCurr->format('Y-m-d');
         $date1 = $date1->format('Y-m-d');
-        $transacciones = $tra->get_TransactionArray($date1,$dateCurr);
+        $transacciones = $tra->get_TransactionArray($_SESSION['id'],$date1,$dateCurr);
 
         $labels = array();
         $xVals = array();
+        $incomeT = 0;
+        $outcomeT = 0;
         foreach ($transacciones as $row){
+            if ($row->quantity>=0) {
+                $incomeT = $incomeT + $row->quantity;
+            } else {
+                $outcomeT = $outcomeT + $row->quantity;
+            }
             $subTime = substr($row->datestamp,0,10);
             $key = array_search($subTime, $labels);
             if (false !== $key){

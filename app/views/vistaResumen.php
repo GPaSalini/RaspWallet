@@ -47,8 +47,8 @@
                             <canvas id="lastChart"></canvas>
                         </div>
                     </div>
-                    <button class="card-info">Ingresos del periodo</button>
-                    <button class="card-info">Egresos del periodo</button>
+                    <button class="card-info">Ingresos del periodo<p><?=$incomeT?></p></button>
+                    <button class="card-info">Egresos del periodo<p><?=$outcomeT?></p></button>
                     <button class="card-info">Ingreso mas alto</button>
                     <button class="card-info">Egreso mas alto</button>
                     <button class="card-info">Cuenta de Ingreso mas frecuente</button>

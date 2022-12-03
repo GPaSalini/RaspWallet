@@ -1,3 +1,5 @@
+const chile = new Intl.NumberFormat("es-CL", { currency: "CLP", style: "currency" })
+
 let myChart;
 
 $(document).ready(function(){
@@ -14,8 +16,8 @@ $(document).ready(function(){
                 if (res.estado==1){
                     myChart.destroy();
                     graficar("myChart",res.labels,res.xVals);
-                    document.getElementById("card-income").innerHTML = res.income;
-                    document.getElementById("card-outcome").innerHTML = res.outcome;
+                    document.getElementById("card-income").innerHTML = chile.format(res.income);
+                    document.getElementById("card-outcome").innerHTML = chile.format(res.outcome);
                 } else {
                     document.getElementById("msnAlert").innerHTML = res.mensaje;
                     document.getElementById("alerta").className = "modal-body alert alert-danger";

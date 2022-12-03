@@ -47,8 +47,8 @@
                             <canvas id="lastChart"></canvas>
                         </div>
                     </div>
-                    <button class="card-info">Ingresos del periodo<p><?=$incomeT?></p></button>
-                    <button class="card-info">Egresos del periodo<p><?=$outcomeT?></p></button>
+                    <button class="card-info">Ingresos del periodo<p id="card-income"><?=$incomeT?></p></button>
+                    <button class="card-info">Egresos del periodo<p id="card-outcome"><?=$outcomeT?></p></button>
                     <button class="card-info">Ingreso mas alto</button>
                     <button class="card-info">Egreso mas alto</button>
                     <button class="card-info">Cuenta de Ingreso mas frecuente</button>
@@ -96,7 +96,6 @@
     
     <!-- Cuentas JS -->
     <script type="text/javascript" src="../../docs/js/alerta.js"></script> 
-    <!-- Cuentas JS        <script type="text/javascript" src="../../docs/js/resumen.js"></script>  -->
     <script type="text/javascript" src="../../docs/js/grafico.js"></script>
 
     <!-- Grafico -->
@@ -110,6 +109,8 @@
         <?php endforeach ?>
         graficar("lastChart",labelsA,xVals);
         graficar("topChart",labelsA,xVals);
+        document.getElementById("card-income").innerHTML = chile.format(<?= $incomeT ?>);
+        document.getElementById("card-outcome").innerHTML = chile.format(<?= $outcomeT ?>);
     </script>
 
     <!-- Sidebar JS -->

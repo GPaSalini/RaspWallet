@@ -53,7 +53,7 @@
                 <!--Fin grafico -->
 
                 <!--Inicio formulario de configuracion del grafico -->
-                <div id="DateDiv" class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <div id="DateDiv" class="mb-3 col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
                     <div class="card">
                         <div class="card-header">
                             <h4>Fechas</h4>
@@ -112,6 +112,8 @@
         xVals.push(<?= $xVals[$i] ?>);
         <?php $i = $i+1?>
         <?php endforeach ?>
+        document.getElementById("card-income").innerHTML = chile.format(<?= $incomeT ?>);
+        document.getElementById("card-outcome").innerHTML = chile.format(<?= $outcomeT ?>);
         graficar("myChart",labelsA,xVals);
     </script>
 

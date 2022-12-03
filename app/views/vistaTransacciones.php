@@ -37,7 +37,7 @@
             <h2 class="mx-7 titulo">Transacciones</h2>
             <hr style="width:90%; margin:auto; margin-bottom:20px; margin-top:20px; background-color:gray;"/>
 
-            <div class="card m-2">
+            <div class="card p-2 m-2">
                 <table class="table mr-4 pr-7" style="width:100%" id="dttable">
                     <thead class="thead-dark">
                         <tr>

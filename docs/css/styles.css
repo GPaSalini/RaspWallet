@@ -76,7 +76,7 @@
         padding: 0px;
     }
     .centrado {
-        font-size: 5vh;
+        font-size: 1.25rem;
     }
     #wrapper.toggled #page-content-wrapper {
         width: 100vw;
@@ -166,14 +166,17 @@ h2.titulo {
 .card-info > * {
     position: absolute;
     inset: 0;
+    width: 70%;
+    height: 50%;
+    margin: auto;
     color:black;
     z-index: -2;
 }
-.card-info:hover > * {
-    position: absolute;
-    inset: 0;
-    color:black;
-    z-index: -1;
+.card-info:hover {
+    color: #00000000;
+}
+.card-info:hover > * , .card-info:focus > * {
+    z-index: 0;
 }
 .card-info::after {
     content: '';
@@ -186,7 +189,7 @@ h2.titulo {
     transform-origin: left;
     transition: transform 200ms ease;
 }
-.card-info:hover::after{
+.card-info:hover::after, .card-info:focus::after{
     transform: scale(0,1);
     transform-origin: left;
     transition: transform 200ms ease;
@@ -265,7 +268,7 @@ form div label {
     font-size: 20px !important;
     font-weight: bolder !important;
 }
-.btn-nuevo:Hover {
+.btn-nuevo:hover {
     background-color: white !important; 
     color: darkslategray !important;
     font-weight: bolder !important;

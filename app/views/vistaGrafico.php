@@ -47,6 +47,8 @@
                             <canvas id="myChart"></canvas>
                         </div>
                     </div>
+                    <button class="card-info">Ingresos del periodo<p id="card-income"><?=$incomeT?></p></button>
+                    <button class="card-info">Egresos del periodo<p id="card-outcome"><?=$outcomeT?></p></button>
                 </div>
                 <!--Fin grafico -->
 

@@ -15,9 +15,16 @@
 
         $labels = array();
         $xVals = array();
+        $incomeT = 0;
+        $outcomeT = 0;
         foreach ($transacciones as $row){
             $subTime = substr($row->datestamp,0,10);
             $key = array_search($subTime, $labels);
+            if ($row->quantity >0){
+                $incomeT = $incomeT + $row->quantity;
+            } else {
+                $outcomeT = $outcomeT + $row->quantity;
+            }
             if (false !== $key){
                 //si ya esta le suma el valor
                 $sum = $xVals[$key];

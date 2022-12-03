@@ -2,7 +2,7 @@ let myChart;
 
 $(document).ready(function(){
     $("form").submit(function(e) {
-        e.preventDefault()
+        e.preventDefault();
     })
 
     $("#aplicar").click(function(){
@@ -14,10 +14,12 @@ $(document).ready(function(){
                 if (res.estado==1){
                     myChart.destroy();
                     graficar("myChart",res.labels,res.xVals);
+                    document.getElementById("card-income").innerHTML = res.income;
+                    document.getElementById("card-outcome").innerHTML = res.outcome;
                 } else {
-                    document.getElementById("msnAlert").innerHTML = res.mensaje
-                    document.getElementById("alerta").className = "modal-body alert alert-danger"
-                    $("#modAlert").modal("show")
+                    document.getElementById("msnAlert").innerHTML = res.mensaje;
+                    document.getElementById("alerta").className = "modal-body alert alert-danger";
+                    $("#modAlert").modal("show");
                 }
             }
         })

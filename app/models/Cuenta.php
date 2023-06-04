@@ -8,7 +8,7 @@ class Cuenta{
 
     public function get_AccountList($id){
         try {
-            $sql = "SELECT * FROM cuenta WHERE id_usr=$id ORDER BY account ASC;";
+            $sql = "SELECT * FROM cuenta WHERE id_acc=$id ORDER BY account ASC;";
             $result = $this->bd->prepare($sql);
             $result->execute();
             if($result->rowCount()>0){
@@ -41,15 +41,14 @@ class Cuenta{
 
     public function post_Account($id_usr,$account,$description){
         try{
-            $sql = "INSERT INTO cuenta(id_usr,account,description) VALUES (:id_usr,:account,:description);";
+            $sql = "INSERT INTO cuenta(id_acc,account,description) VALUES (:id_usr,:account,:description);";
             $result = $this->bd->prepare($sql);
-            $result->bindParam('id_usr',$id_usr);
+            $result->bindParam('id_acc',$id_usr);
             $result->bindParam('account',$account);
             $result->bindParam('description',$description);
             $result->execute();
             return true;
         }catch(PDOexception $e){
-            var_dump($e);
             return false;
         }
     }

@@ -41,7 +41,7 @@
                 <div id="ResumenDiv" class="col-xs-10 col-sm-10 col-md-6 col-lg-6 col-xl-6">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Movimientos ultimos 30 dias</h4>
+                            <h4>Ultimos 7 dias</h4>
                         </div>
                         <div class="card-body col-md-12 col-lg-12">
                             <canvas id="lastChart"></canvas>
@@ -58,7 +58,7 @@
                 <div id="TopDiv" class="col-xs-10 col-sm-10 col-md-6 col-lg-6 col-xl-6">
                     <div class="card">
                         <div class="card-header">
-                            <h4>nombre mes con mas movimientos</h4>
+                            <h4>Ultimos 30 dias</h4>
                         </div>
                         <div class="card-body col-md-12 col-lg-12">
                             <canvas id="topChart"></canvas>

@@ -1,6 +1,9 @@
 <!-- Inicio menu lateral -->
 <nav class="navbar justify-content-center bg-raspi text-white" id="sidebar-wrapper">
-<div class="sidebar-heading"><img class="centrado" src="../../docs/img/raspberry-icon2.png" width="80" height="80"><h5 class="centrado">RaspWallet</h5></div>
+<div class="sidebar-heading">
+    <img class="centrado margenes" src="../../docs/img/raspberry-icon2.png" width="40" height="40">
+    <h4 class="centrado">RaspWallet</h4>
+</div>
 <hr style="width:90%; margin:auto; background-color:gray;"/>
 <div class="list-group list-group-flush">
     <a href="./ctrlResumen.php" class="<?php if($var_menu==1) {echo('bg-sel');} else {echo('btn-menu');} ?> text-white list-group-item list-group-item-action"><i class="fas fa-user-alt"></i> Resumen</a>

@@ -39,12 +39,12 @@ class Cuenta{
         }
     }
 
-    public function post_Account($id_usr,$account,$description){
+    public function post_Account($id_usr,$id_acc,$description){
         try{
-            $sql = "INSERT INTO cuenta(id_usr,account,description) VALUES (:id_usr,:account,:description);";
+            $sql = "INSERT INTO cuenta(id_usr,id_acc,description) VALUES (:id_usr,:id_acc,:description);";
             $result = $this->bd->prepare($sql);
             $result->bindParam('id_usr',$id_usr);
-            $result->bindParam('account',$account);
+            $result->bindParam('id_acc',$account);
             $result->bindParam('description',$description);
             $result->execute();
             return true;
@@ -53,12 +53,12 @@ class Cuenta{
         }
     }
 
-    public function put_Account($id,$account,$description){
+    public function put_Account($id,$id_acc,$description){
         try{
-            $sql = "UPDATE cuenta SET account=:account,description=:description WHERE id_usr=:id;";
+            $sql = "UPDATE cuenta SET account=:id_acc,description=:description WHERE id_usr=:id;";
             $result = $this->bd->prepare($sql);
             $result->bindParam('id',$id);
-            $result->bindParam('account',$account);
+            $result->bindParam('id_acc',$id_acc);
             $result->bindParam('description',$description);
             $result->execute();
             return true;

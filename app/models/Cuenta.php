@@ -24,7 +24,7 @@ class Cuenta{
 
     public function get_Account($id){
         try {
-            $sql = "SELECT * FROM cuenta WHERE id_usr=:id;";
+            $sql = "SELECT * FROM cuenta WHERE id_acc=:id;";
             $result = $this->bd->prepare($sql);
             $result->bindParam(':id',$id);
             $result->execute();
@@ -39,12 +39,12 @@ class Cuenta{
         }
     }
 
-    public function post_Account($id_usr,$id_acc,$description){
+    public function post_Account($id_usr,$account,$description){
         try{
-            $sql = "INSERT INTO cuenta(id_usr,id_acc,description) VALUES (:id_usr,:id_acc,:description);";
+            $sql = "INSERT INTO cuenta(id_usr,account,description) VALUES (:id_usr,:account,:description);";
             $result = $this->bd->prepare($sql);
             $result->bindParam('id_usr',$id_usr);
-            $result->bindParam('id_acc',$account);
+            $result->bindParam('account',$account);
             $result->bindParam('description',$description);
             $result->execute();
             return true;
@@ -53,12 +53,12 @@ class Cuenta{
         }
     }
 
-    public function put_Account($id,$id_acc,$description){
+    public function put_Account($id,$account,$description){
         try{
-            $sql = "UPDATE cuenta SET account=:id_acc,description=:description WHERE id_usr=:id;";
+            $sql = "UPDATE cuenta SET account=:account,description=:description WHERE id_acc=:id;";
             $result = $this->bd->prepare($sql);
             $result->bindParam('id',$id);
-            $result->bindParam('id_acc',$id_acc);
+            $result->bindParam('account',$account);
             $result->bindParam('description',$description);
             $result->execute();
             return true;

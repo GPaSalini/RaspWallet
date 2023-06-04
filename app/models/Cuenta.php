@@ -49,6 +49,7 @@ class Cuenta{
             $result->execute();
             return true;
         }catch(PDOexception $e){
+            var_dump($e);
             return false;
         }
     }

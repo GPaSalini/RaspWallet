@@ -52,11 +52,11 @@ function graficar(namechart,labelsArr,xVals){
             var showTicks = (size.height < 400) ? false : true;
             myChart.options = {
                    scales: {
-                       xAxes: [{
+                       x: {
                            ticks: {
                                display: showTicks
                            }
-                       }]
+                       }
                    }
             }
         }

@@ -1,14 +1,14 @@
 <!-- Inicio Sidebar -->
 <div class="navbar text-white sidebar-login" id="sidebar-wrapper">
-    <div class="sidebar-heading"><img class="centrado" src="../../docs/img/raspberry-icon2.png" width="80" height="80"><h5 class="centrado">RaspWallet</h5></div>
+    <div class="sidebar-heading"><img class="centrado" src="../../docs/img/raspberry-icon2.png" width="32" height="32"><h5 class="centrado">RaspWallet</h5></div>
     <hr style="width:90%; margin:auto; background-color:gray;"/>
     <div class="list-group list-group-flush centrado">
         <form id="form-login" class="text-white list-group-item list-group-item-action" action="../controllers/login.php" method="post">
-            <div class="form-group">
+            <div class="form-group" style="float:none;">
                 <label for="username">Usuario</label>
                 <input id="username" type="text" class="form-control inputuser modal-input" name="username" minlength="8" maxlength="50"> 
             </div>
-            <div class="form-group" style="margin-bottom:0;">
+            <div class="form-group" style="margin-bottom:0; float:none;">
                 <label for="pass">Contraseña</label>
                 <input id="pass" type="password" class="form-control inputuser modal-input" name="pass" minlength="8" maxlength="50"> 
             </div>

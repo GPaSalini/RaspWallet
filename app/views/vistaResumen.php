@@ -40,15 +40,10 @@
                 <!-- Resumen de los ultimos 30 dias -->
                 <div id="ResumenDiv" class="col-xs-10 col-sm-10 col-md-6 col-lg-6 col-xl-6">
                     <div class="card">
-                        <div class="card-header">
-                            <h4>Ultimos 7 dias</h4>
-                        </div>
-                        <div class="card-body col-md-12 col-lg-12">
-                            <canvas id="lastChart"></canvas>
-                        </div>
+                        <canvas id="lastChart"></canvas>
                     </div>
-                    <button class="card-info">Ingresos del periodo<p id="card-income"><?=$incomeT?></p></button>
-                    <button class="card-info">Egresos del periodo<p id="card-outcome"><?=$outcomeT?></p></button>
+                    <button class="card-info">Ingresos del periodo<p><?=$incomeT?></p></button>
+                    <button class="card-info">Egresos del periodo<p><?=$outcomeT?></p></button>
                     <button class="card-info">Ingreso mas alto</button>
                     <button class="card-info">Egreso mas alto</button>
                     <button class="card-info">Cuenta de Ingreso mas frecuente</button>
@@ -57,12 +52,7 @@
                 <!-- Mes mas frecuente: grafico -->
                 <div id="TopDiv" class="col-xs-10 col-sm-10 col-md-6 col-lg-6 col-xl-6">
                     <div class="card">
-                        <div class="card-header">
-                            <h4>Ultimos 30 dias</h4>
-                        </div>
-                        <div class="card-body col-md-12 col-lg-12">
-                            <canvas id="topChart"></canvas>
-                        </div>
+                        <canvas id="topChart"></canvas>
                     </div>
                     <button class="card-info">Ingresos del periodo</button>
                     <button class="card-info">Egresos del periodo</button>
@@ -96,6 +86,7 @@
     
     <!-- Cuentas JS -->
     <script type="text/javascript" src="../../docs/js/alerta.js"></script> 
+    <!-- Cuentas JS        <script type="text/javascript" src="../../docs/js/resumen.js"></script>  -->
     <script type="text/javascript" src="../../docs/js/grafico.js"></script>
 
     <!-- Grafico -->
@@ -109,8 +100,6 @@
         <?php endforeach ?>
         graficar("lastChart",labelsA,xVals);
         graficar("topChart",labelsA,xVals);
-        document.getElementById("card-income").innerHTML = chile.format(<?= $incomeT ?>);
-        document.getElementById("card-outcome").innerHTML = chile.format(<?= $outcomeT ?>);
     </script>
 
     <!-- Sidebar JS -->
@@ -121,7 +110,7 @@
         if ($("#wrapper").hasClass("toggled")) {
             $("#page-content-wrapper").attr('class','col-md-12 col-lg-12 col-sm-12 col-12 col-xl-12');
         } else {
-            $("#page-content-wrapper").attr('class','col-md-10 col-lg-10 col-sm-10 col-10 col-xl-10');
+            $("#page-content-wrapper").attr('class','col-md-9 col-lg-9 col-sm-9 col-9 col-xl-9');
         }
     });
     </script>

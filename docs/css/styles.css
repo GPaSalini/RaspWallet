@@ -1,11 +1,12 @@
 /* colores propios */
 :root {
-    --main-bg-color: #500505;
-    --main-rpi-color: #720c0c;
-    --main-sel-color: #991f1f;
-    --main-yes-color: #318118;
-    --trans-bg-color: #830f0fda;
-    --trans-rpi-color: #720c0cdf;
+    --main-bg-color:    #500505;
+    --alt-bg-color:     whitesmoke;
+    --main-rpi-color:   #720c0c;
+    --main-sel-color:   #991f1f;
+    --main-yes-color:   #318118;
+    --trans-bg-color:   #830f0fda;
+    --trans-rpi-color:  #720c0cdf;
 }
 
 .container {
@@ -19,40 +20,46 @@
     flex-direction: row;
     padding: 0px;
 }
-/*#wrapper {overflow-x: hidden;}*/
 #sidebar-wrapper {
     justify-content: baseline;
     min-height: 100vh;
-    min-width: 16vw;
+    width: 30vw;
     margin-left: 0;
     transition: margin .25s ease-out;
 }
 #sidebar-wrapper .sidebar-heading {
-    padding: 0.875rem 1.25rem;
+    padding: 1.5rem 1.25rem;
     font-size: 1.2rem;
+}
+#sidebar-wrapper .sidebar-heading > img {
+    float: right !important;
 }
 #sidebar-wrapper .list-group {
     margin-left: 0vw;
 }
 #wrapper.toggled #sidebar-wrapper {
-    margin-left: -16vw;
+    margin-left: -30vw;
 }
 #page-content-wrapper {
-    background-color:#D9D9D9;
+    height: 100vh;
+    background-color: var(--alt-bg-color);
     transition: margin .25s ease-out;
 }
-#wrapper.toggled #page-content-wrapper {
-    background-color:#D9D9D9;
+#wrapper {
+    background-color: var(--alt-bg-color);
 }
-.list-group-item{
+.list-group-item {
     border-width: 0px !important;
+}
+.list-group-item > * {
+    float: right;
 }
 
 /* Datatable*/
 .pagination {
     flex-wrap: wrap !important;
 }
-#mydatatable{
+#mydatatable {
     border-collapse: collapse;
     font-size: 12px;
     width: 100%;
@@ -61,41 +68,36 @@
     background-color: var(--main-bg-color) !important;
     border-color: var(--main-rpi-color) !important; 
 }
-.dataTables_info{
+.dataTables_info {
     float: right !important;
 }
 .dataTables_length{
     float: left !important;
 }
 
-/* On smaller screens, where height is less than 640px, change the style of the sidenav (less padding and a smaller font size) */
+/* On smaller screens, where height is less than 720px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-width: 720px) {
-    .navbar {
-        display: inline;
-        flex-direction: column;
-        padding: 0px;
-    }
     .centrado {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
     }
-    #wrapper.toggled #page-content-wrapper {
+    #sidebar-wrapper {
+        position: static;
         width: 100vw;
-        background-color:whitesmoke;
+        inset: 0 0 0 0;
+        z-index: 1;
+        font-size: 3vh;
+        height: 100vh;
     }
-    .list-group{
+    .list-group {
         min-width: 70vw;
         font-size: 3vh;
     }
-    .list-group input{
+    .list-group input {
         font-size: 3vh;
-    }
-    #sidebar-wrapper{
-        font-size: 3vh;
-        min-height: 100vh;
-        min-width: 80vw;
     }
     #wrapper.toggled #sidebar-wrapper {
-        margin-left: -80vw;
+        position: absolute;
+        z-index: -3;
     }
     #wrapper.toggled #menu-toggle {
         margin-top: 10px;
@@ -105,16 +107,13 @@
         min-width: 100vw !important;
     }
     #wrapper.toggled .sidebar-login {
-        margin-left: -100vw !important;
+        margin-right: -100vw !important;
     }
     .sidebar-login #page-content-wrapper {
         min-width: 0;
         width: 0;
     }
-    .dataTables_info{
-        float: none !important;
-    }
-    .dataTables_length{
+    .dataTables_info, .dataTables_length{
         float: none !important;
     }
 }
@@ -123,7 +122,7 @@
     background-color: var(--main-bg-color) !important;
     border-color: var(--main-rpi-color) !important;
 }
-.table td{
+.table td {
     border-top: 0px !important;
     border-bottom: 1px solid gray !important;
 }
@@ -136,35 +135,27 @@ h2.titulo {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 0.5rem;
 }
 
-#wrapper {
-    background-color:whitesmoke;
-}
+
 .card {
-    border: 1px solid var(--light) !important;
-    padding: 0px;
-    background-color: white;
+    border: 0px solid !important;
+    padding: 12px;
+    background-color: rgba(206, 205, 205, 0.3);
 }
 .card-header {
     background-color: var(--main-rpi-color);
     color: white; 
 }
 .card-info {
-    position: relative;
-    box-sizing: border-box;
-    display: inline-flex !important;
-    margin: 4%;
-    width: 40%;
-    min-height: 64px;
-    align-items: center;;
-    justify-content: center;
-    font-weight: 500;
     font-family: inherit;
+    box-sizing: border-box;
+    margin: 4%;
+    position: relative;
+    display: inline-flex !important;
+    width: 40%;
     isolation: isolate;
-    border: 2px solid var(--main-bg-color);
-    border-radius: 5px;
+    border: 2px solid var(--main-rpi-color);
     color:white;
     padding: .5em 1.5em;
     background: rgba(0, 0, 0, 0);
@@ -177,9 +168,6 @@ h2.titulo {
     margin: auto;
     color:black;
     z-index: -2;
-}
-.card-info:hover {
-    color: #00000000;
 }
 .card-info:hover > * , .card-info:focus > * {
     z-index: 0;
@@ -199,11 +187,6 @@ h2.titulo {
     transform: scale(0,1);
     transform-origin: left;
     transition: transform 200ms ease;
-}
-@media screen and (max-width: 720px) {
-    .card-info {
-        width: 90%;
-    }
 }
 
 .modal-content {
@@ -241,23 +224,31 @@ form div label {
     height: 100%;
 }
 
+@media screen and (max-width: 720px) {
+    .card-info {
+        width: 90%;
+    }
+    .bg-sel::before {
+        content: ' ';
+        background: white;
+        position: absolute;
+        inset: 0 0 0 97%;
+        width: 3%;
+        height: 100%;
+    }
+}
+
 /* Botones */
-.btn-secondary {
+.btn-secondary, .btn-menu, .btn-nuevo, .btn-menusb, .btn-cancelar, .btn-modificar {
     background-color: var(--main-rpi-color) !important;
 }
-.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {
-    background-color: var(--main-sel-color) !important;
-}
-.btn-menu {
-    background-color: var(--main-rpi-color) !important;
-}
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active,
 .btn-menu:hover, .btn-menu:focus, .btn-menu:active {
     background-color: var(--main-sel-color) !important;
 }
-.btn-menusb{
+.btn-menusb {
     margin: 10px;
     float: left;
-    background-color: var(--main-rpi-color) !important;
     color: white !important;
     font-weight: bolder;
     font-size: 20px !important;
@@ -269,7 +260,6 @@ form div label {
 .btn-nuevo {
     margin: 10px;
     float: right;
-    background-color: var(--main-rpi-color) !important;
     color: white !important;
     font-size: 20px !important;
     font-weight: bolder !important;
@@ -292,20 +282,18 @@ form div label {
     color: black;
     font-weight: bolder;
 }
-.btn-cancelar{
+.btn-cancelar {
     display: inline;
-    background-color: var(--main-rpi-color) !important;
     color: white; 
     border: 1px solid darkslategray !important;
     font-weight: bolder;
 }
-.btn-cancelar:hover{
+.btn-cancelar:hover {
     background-color: #ffffffab !important;
     color: rgb(0, 0, 0);
     font-weight: bolder;
 }
 .btn-modificar {
-    background-color: var(--main-rpi-color) !important;
     color: white !important;
     font-size: 12px;
 }
@@ -314,14 +302,10 @@ form div label {
     color: var(--main-rpi-color) !important;
 }
 
-.centrado{
+.centrado {
     display: inline;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     vertical-align: middle;
-}
-
-.margenes{
-    margin: 1rem;
 }

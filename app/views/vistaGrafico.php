@@ -40,20 +40,13 @@
                 <!--Inicia grafico -->
                 <div id="GraficoDiv" class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
                     <div class="card">
-                        <div class="card-header">
-                            <h4>Grafico</h4>
-                        </div>
-                        <div class="card-body">
-                            <canvas id="myChart"></canvas>
-                        </div>
+                        <canvas id="myChart"></canvas>
                     </div>
-                    <button class="card-info">Ingresos del periodo<p id="card-income"><?=$incomeT?></p></button>
-                    <button class="card-info">Egresos del periodo<p id="card-outcome"><?=$outcomeT?></p></button>
                 </div>
                 <!--Fin grafico -->
 
                 <!--Inicio formulario de configuracion del grafico -->
-                <div id="DateDiv" class="mb-3 col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <div id="DateDiv" class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
                     <div class="card">
                         <div class="card-header">
                             <h4>Fechas</h4>
@@ -112,8 +105,6 @@
         xVals.push(<?= $xVals[$i] ?>);
         <?php $i = $i+1?>
         <?php endforeach ?>
-        document.getElementById("card-income").innerHTML = chile.format(<?= $incomeT ?>);
-        document.getElementById("card-outcome").innerHTML = chile.format(<?= $outcomeT ?>);
         graficar("myChart",labelsA,xVals);
     </script>
 

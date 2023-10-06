@@ -30,7 +30,7 @@ $(document).ready(function(){
 
 
 function graficar(namechart,labelsArr,xVals){
-    var chartdata = {
+    var srcdata = {
         labels: labelsArr,
         datasets: [
             {
@@ -46,18 +46,27 @@ function graficar(namechart,labelsArr,xVals){
     var grafico = $("#"+namechart);
     var myCharData = {
         type: 'bar',
-        data: chartdata,
-        options: {responsive: true},
+        data: srcdata,
+        options: {
+            responsive: true,
+            scales: {
+                x: {
+                    ticks: {
+                        display: (size.height < 400) ? false : true
+                    }
+                }
+            }
+        },
         onResize: function(myChart, size) {
             var showTicks = (size.height < 400) ? false : true;
             myChart.options = {
-                   scales: {
-                       x: {
-                           ticks: {
-                               display: showTicks
-                           }
-                       }
-                   }
+                scales: {
+                    x: {
+                        ticks: {
+                            display: showTicks
+                        }
+                    }
+                }
             }
         }
     };

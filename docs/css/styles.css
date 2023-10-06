@@ -229,8 +229,14 @@ form div label {
 }
 
 @media screen and (max-width: 720px) {
+    .card-header {
+        padding: 0.5rem 1rem;
+    }
     .card-info {
         width: 90%;
+    }
+    .card-body {
+        padding: 0rem 1.25rem;
     }
     .bg-sel::before {
         content: ' ';
@@ -239,6 +245,16 @@ form div label {
         inset: 0 0 0 97%;
         width: 3%;
         height: 100%;
+    }
+    h4 {
+        font-size: 1.1rem;
+        margin-bottom: 0px !important;
+    }
+    form div label {
+        font-size: 1rem;
+    }
+    .card {
+        margin-bottom: 0.5rem !important;
     }
 }
 

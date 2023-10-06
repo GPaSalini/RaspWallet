@@ -44,5 +44,22 @@ function graficar(namechart,labelsArr,xVals){
         ]
     };
     var grafico = $("#"+namechart);
-    myChart = new Chart(grafico, {type: 'bar', data: chartdata, options: {responsive: true}});
+    var myCharData = {
+        type: 'bar',
+        data: chartdata,
+        options: {responsive: true},
+        onResize: function(myChart, size) {
+            var showTicks = (size.height < 400) ? false : true;
+            myChart.options = {
+                   scales: {
+                       xAxes: [{
+                           ticks: {
+                               display: showTicks
+                           }
+                       }]
+                   }
+            }
+        }
+    };
+    myChart = new Chart(grafico,myCharData);
 }

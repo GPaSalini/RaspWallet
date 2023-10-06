@@ -149,6 +149,7 @@ h2.titulo {
 }
 .card-info {
     font-family: inherit;
+    font-weight: 500;
     box-sizing: border-box;
     margin: 4%;
     position: relative;
@@ -156,9 +157,12 @@ h2.titulo {
     width: 40%;
     isolation: isolate;
     border: 2px solid var(--main-rpi-color);
-    color:white;
+    color: var(--alt-bg-color);
     padding: .5em 1.5em;
-    background: rgba(0, 0, 0, 0);
+    background: var(--main-sel-color);
+}
+.card-info:hover {
+    color: rgba(0,0,0,0);
 }
 .card-info > * {
     position: absolute;
@@ -166,11 +170,11 @@ h2.titulo {
     width: 70%;
     height: 50%;
     margin: auto;
-    color:black;
+    color:white;
     z-index: -2;
 }
 .card-info:hover > * , .card-info:focus > * {
-    z-index: 0;
+    z-index: 1;
 }
 .card-info::after {
     content: '';
@@ -308,8 +312,4 @@ form div label {
     margin-right: auto;
     text-align: center;
     vertical-align: middle;
-}
-
-.icono-lateral {
-    margin-right: 4px;
 }

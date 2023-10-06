@@ -34,7 +34,6 @@ function graficar(namechart,labelsArr,xVals){
         labels: labelsArr,
         datasets: [
             {
-                label: "$",
                 backgroundColor: '#720c0c',
                 borderColor: '#46d5f1',
                 hoverBackgroundColor: '#500505',
@@ -49,6 +48,11 @@ function graficar(namechart,labelsArr,xVals){
         data: srcdata,
         options: {
             responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
             scales: {
                 x: {
                     ticks: {

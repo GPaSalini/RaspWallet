@@ -52,19 +52,7 @@ function graficar(namechart,labelsArr,xVals){
             scales: {
                 x: {
                     ticks: {
-                        display: (size.height < 400) ? false : true
-                    }
-                }
-            }
-        },
-        onResize: function(myChart, size) {
-            var showTicks = (size.height < 400) ? false : true;
-            myChart.options = {
-                scales: {
-                    x: {
-                        ticks: {
-                            display: showTicks
-                        }
+                        display: false
                     }
                 }
             }
